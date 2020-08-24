@@ -41,7 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="_DAO\Models\DAO.cs" />
+    <Compile Include="Factory\Interfaces\IFactory.cs" />
+    <Compile Include="Factory\Models\Factory.cs" />
+    <Compile Include="Models\Gender.cs" />
+    <Compile Include="Models\Group.cs" />
+    <Compile Include="Models\Session.cs" />
+    <Compile Include="Models\SessionType.cs" />
+    <Compile Include="Models\WorkResult.cs" />
+    <Compile Include="Models\SessionShedule.cs" />
+    <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\Subject.cs" />
+    <Compile Include="Models\WorkType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
