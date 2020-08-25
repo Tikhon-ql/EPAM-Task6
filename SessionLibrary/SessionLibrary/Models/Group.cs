@@ -28,8 +28,9 @@ namespace SessionLibrary.Models
                 stringBuilder.IntegratedSecurity = true;
                 cnn.ConnectionString = stringBuilder.ConnectionString;
                 SqlCommand command = new SqlCommand();
-                command.CommandText = "select s.Id from Student s,WorkResult w where " +
-                                      "s.GroupId = @grId and s.Id = w.StudentId and if(w.WorkTypeId = 1, w.Result <= 3,w.Result == `false`)";
+                //command.CommandText = "select s.Id from Student s,WorkResult w,Group g where " +
+                //                      "s.GroupId = @grId and g.Id = s.GroupId and s.Id = w.StudentId and " +
+                //                      "(w.Result = `false` || w.Result <= 3) group by g.Id";
                 command.Parameters.AddWithValue("@grId", groupId);
                 List<int> ids = new List<int>();
                 cnn.Open();
@@ -41,9 +42,10 @@ namespace SessionLibrary.Models
                     }
                 }
                 List<Student> students = new List<Student>();
+                DAO<Student> dao = new DAO<Student>(new SqlConnectionStringBuilder());
                 foreach (int id in ids)
                 {
-                    students.Add(DAO<Student>.Read(id));
+                    students.Add(dao.Read(id));
                 }
                 return students;
             }

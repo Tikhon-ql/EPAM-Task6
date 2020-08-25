@@ -31,8 +31,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EPPlus, Version=5.3.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.5.3.0\lib\net45\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,9 +49,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="_DAO\Interface\IDao.cs" />
     <Compile Include="_DAO\Models\DAO.cs" />
-    <Compile Include="Factory\Interfaces\IFactory.cs" />
-    <Compile Include="Factory\Models\Factory.cs" />
+    <Compile Include="_DAO\DaoFactory\Interfaces\IFactory.cs" />
+    <Compile Include="_DAO\DaoFactory\Models\Factory.cs" />
     <Compile Include="Models\Gender.cs" />
     <Compile Include="Models\Group.cs" />
     <Compile Include="Models\Session.cs" />
@@ -56,5 +65,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

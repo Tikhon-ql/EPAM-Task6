@@ -1,4 +1,5 @@
 ﻿
+using SessionLibrary._DAO.Interface;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -11,16 +12,14 @@ using System.Threading.Tasks;
 
 namespace SessionLibrary._DAO.Models
 {
-    public static class DAO<T>
+    public class DAO<T>:IDao<T>
     {
-        static SqlConnectionStringBuilder stringBuilder = new SqlConnectionStringBuilder();
-        static DAO()
+        SqlConnectionStringBuilder stringBuilder = new SqlConnectionStringBuilder();
+        public DAO(SqlConnectionStringBuilder builder)
         {
-            stringBuilder.DataSource = @"(localdb)\mssqllocaldb";
-            stringBuilder.InitialCatalog = "SessionLibrary";
-            stringBuilder.IntegratedSecurity = true;
+            stringBuilder = builder;
         }
-        public static void Create(T value)
+        public void Create(T value)
         {
             using (SqlConnection cnn = new SqlConnection())
             {
@@ -49,7 +48,7 @@ namespace SessionLibrary._DAO.Models
             }
         }
 
-        public static void Delete(int id)
+        public void Delete(int id)
         {
             using (SqlConnection cnn = new SqlConnection())
             {
@@ -62,7 +61,7 @@ namespace SessionLibrary._DAO.Models
             }
         }
 
-        public static T Read(int id)
+        public T Read(int id)
         {
             using(SqlConnection cnn = new SqlConnection())
             {
@@ -85,10 +84,12 @@ namespace SessionLibrary._DAO.Models
             }
         }
 
-        public static void Update(T value)
+        public void Update(T value)
         {
-            Delete(Convert.ToInt32(typeof(T).GetProperty("Id").GetValue(value)));
-            Create(value);
+            using(SqlConnection cnn = new SqlConnection())
+            {
+                
+            }
         }
     }
 }
