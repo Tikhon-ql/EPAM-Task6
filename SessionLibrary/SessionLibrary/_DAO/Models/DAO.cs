@@ -12,10 +12,10 @@ using System.Threading.Tasks;
 
 namespace SessionLibrary._DAO.Models
 {
-    public class DAO<T>:IDao<T>
+    public class Dao<T>:IDao<T>
     {
         SqlConnectionStringBuilder stringBuilder = new SqlConnectionStringBuilder();
-        public DAO(SqlConnectionStringBuilder builder)
+        public Dao(SqlConnectionStringBuilder builder)
         {
             stringBuilder = builder;
         }

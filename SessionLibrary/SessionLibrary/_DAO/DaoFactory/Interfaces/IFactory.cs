@@ -1,4 +1,6 @@
-﻿using SessionLibrary.Models;
+﻿using SessionLibrary._DAO.Interface;
+using SessionLibrary._DAO.Models;
+using SessionLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +11,14 @@ namespace SessionLibrary.DaoFactory.Interfaces
 {
     public interface IFactory
     {
-        Student CreateStudent(int id, string name, string surname, string midleName, int group, int gender);
-        Group CreateStudent(int id, string groupName);
-        SessionShedule CreatSessionShedule(int id, int groupId, DateTime date, int subjectId, int workTypeId);
-        Session CreatSession(int id, string academicYears, int sessionTypeId);
-        Subject CreatSubject(int id, string subjectName);
+        IDao<Student> GetStudentCreator();
+        IDao<Gender> GetGenderCreator();
+        IDao<Group> GetGroupCreator();
+        IDao<Session> GetSessionCreator();
+        IDao<SessionShedule> GetSessionSheduleCreator();
+        IDao<WorkResult> GetWorkResultCreator();
+        IDao<WorkType> GetWorkTypeCreator();
+        IDao<Subject> GetSubjectCreator();
+        IDao<SessionType> GetSessionTypeCreator();
     }
 }

@@ -1,7 +1,12 @@
-﻿using SessionLibrary.Factory.Interfaces;
+﻿using OfficeOpenXml;
+using SessionLibrary._DAO.Interface;
+using SessionLibrary._DAO.Models;
+using SessionLibrary.DaoFactory.Interfaces;
+using SessionLibrary.Factory.Interfaces;
 using SessionLibrary.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
@@ -11,30 +16,51 @@ namespace SessionLibrary.DaoFactory.Models
 {
     public class SessionFactory:IFactory
     {
+        private SqlConnectionStringBuilder stringBuilder = new SqlConnectionStringBuilder();
 
-        public Student CreateStudent(int id, string name, string surname, string midleName, int group, int gender)
+        public IDao<Group> GetGroupCreator()
         {
-            return new Student(id, name, surname, midleName, group, gender);
+            return new GroupCreator(stringBuilder);
         }
 
-        public Group CreateStudent(int id, string groupName)
+        public IDao<Gender> GetGenderCreator()
         {
-            return new Group(id, groupName);
+            return new GenderCreator(stringBuilder);
         }
 
-        public SessionShedule CreatSessionShedule(int id, int groupId, DateTime date, int subjectId, int workTypeId)
+        public IDao<Session> GetSessionCreator()
         {
-            return new SessionShedule(id, groupId, date, subjectId, workTypeId);
+            return new SessionCreator(stringBuilder);
         }
 
-        public Session CreatSession(int id, string academicYears, int sessionTypeId)
+        public IDao<SessionShedule> GetSessionSheduleCreator()
         {
-            return new Session(id, academicYears, sessionTypeId);
+            return new SessionSheduleCreator(stringBuilder);
         }
 
-        public Subject CreatSubject(int id, string subjectName)
+        public IDao<SessionType> GetSessionTypeCreator()
         {
-            return new Subject(id, subjectName);
+            return new SessionTypeCreator(stringBuilder);
+        }
+
+        public IDao<Student> GetStudentCreator()
+        {
+            return new StudentCreator(stringBuilder);
+        }
+
+        public IDao<Subject> GetSubjectCreator()
+        {
+            return new SubjectCreator(stringBuilder);
+        }
+
+        public IDao<WorkResult> GetWorkResultCreator()
+        {
+            return new WorkResultCreator(stringBuilder);
+        }
+
+        public IDao<WorkType> GetWorkTypeCreator()
+        {
+            return new WorkTypeCreator(stringBuilder);
         }
     }
 }
