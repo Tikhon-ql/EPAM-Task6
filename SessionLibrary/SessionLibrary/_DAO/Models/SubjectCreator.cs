@@ -1,4 +1,5 @@
 ﻿using SessionLibrary.Models;
+using SessionLibrary.Models.Another;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -12,5 +13,4 @@ namespace SessionLibrary._DAO.Models
     {
         public SubjectCreator(SqlConnectionStringBuilder stringBuild) : base(stringBuild) { }
     }
-}
 }

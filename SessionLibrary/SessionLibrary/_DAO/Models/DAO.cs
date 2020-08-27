@@ -14,51 +14,67 @@ namespace SessionLibrary._DAO.Models
 {
     public class Dao<T>:IDao<T>
     {
-        SqlConnectionStringBuilder stringBuilder = new SqlConnectionStringBuilder();
+        private SqlConnectionStringBuilder stringBuilder = new SqlConnectionStringBuilder();
         public Dao(SqlConnectionStringBuilder builder)
         {
             stringBuilder = builder;
         }
-        public void Create(T value)
+        public bool Create(T value)
         {
-            using (SqlConnection cnn = new SqlConnection())
+            try
             {
-                cnn.ConnectionString = stringBuilder.ConnectionString;
-                Type type = value.GetType();
-                PropertyInfo[] infos = type.GetProperties();
-                SqlCommand command = new SqlCommand();
-                command.Connection = cnn;
-                string values = "";
-                string columns = "";
-                foreach (PropertyInfo item in infos)
+                using (SqlConnection cnn = new SqlConnection())
                 {
-                    command.Parameters.AddWithValue("@" + item.Name, item.GetValue(value));
-                    if (columns != "")
-                        columns = "," + item.Name;
-                    else
-                        columns += item.Name;
-                    if (values != "")
-                        values += ",@" + item.Name;
-                    else
-                        values += "@" + item.Name;
+                    cnn.ConnectionString = stringBuilder.ConnectionString;
+                    Type type = value.GetType();
+                    PropertyInfo[] infos = type.GetProperties();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = cnn;
+                    string values = "";
+                    string columns = "";
+                    foreach (PropertyInfo item in infos)
+                    {
+                        command.Parameters.AddWithValue("@" + item.Name, item.GetValue(value));
+                        if (columns != "")
+                            columns += "," + item.Name;
+                        else
+                            columns += item.Name;
+                        if (values != "")
+                            values += ",@" + item.Name;
+                        else
+                            values += "@" + item.Name;
+                    }
+                    command.CommandText = "insert into @table (" + columns + ")" + " values(" + values + ")";
+                    cnn.Open();
+                    command.ExecuteNonQuery();
+                    return true;
                 }
-                command.CommandText = "insert into @table (" + columns + ")" + "values(" + values + ")";
-                cnn.Open();
-                command.ExecuteNonQuery();
+            }
+            catch
+            {
+                return false;
             }
         }
 
-        public void Delete(int id)
+        public bool Delete(int id)
         {
-            using (SqlConnection cnn = new SqlConnection())
+            try
             {
-                cnn.ConnectionString = stringBuilder.ConnectionString;
-                Type type = typeof(T);
-                SqlCommand command = new SqlCommand("delete from @table where Id = @id",cnn);
-                command.Parameters.AddWithValue("@id",id);
-                command.Parameters.AddWithValue("@table",type.Name);
-                cnn.Open();
-                command.ExecuteNonQuery();
+                using (SqlConnection cnn = new SqlConnection())
+                {
+                    cnn.ConnectionString = stringBuilder.ConnectionString;
+                    Type type = typeof(T);
+                    SqlCommand command = new SqlCommand("delete from @table where Id = @id", cnn);
+                    command.Parameters.AddWithValue("@id", id);
+                    command.Parameters.AddWithValue("@table", type.Name);
+                    cnn.Open();
+                    command.ExecuteNonQuery();
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
             }
         }
 
@@ -68,47 +84,54 @@ namespace SessionLibrary._DAO.Models
             {
                 cnn.ConnectionString = stringBuilder.ConnectionString;
                 Type type = typeof(T);
-                PropertyInfo[] infos = type.GetProperties();
+                /////
                 SqlCommand command = new SqlCommand("select * from @table where Id = @id", cnn);
                 command.Parameters.AddWithValue("@id", id);
                 command.Parameters.AddWithValue("@table", type.Name);
                 cnn.Open();
-                dynamic value = null;
+                List<object> _params = new List<object>();
                 using(SqlDataReader sdr = command.ExecuteReader())
                 {
                     sdr.Read();
-                    foreach (PropertyInfo item in infos)
-                    {
-                        item.SetValue(value,sdr[item.Name]);
-                    }
+                    for(int i = 0;i<sdr.FieldCount;i++)
+                        _params.Add(sdr[i]);
                 }
-                return value;
+                ////
+                return (T)Activator.CreateInstance(typeof(T), _params);
             }
         }
 
-        public void Update(T value)
+        public bool Update(T value)
         {
-            using(SqlConnection cnn = new SqlConnection())
+            try
             {
-                cnn.ConnectionString = stringBuilder.ConnectionString;
-                Type type = typeof(T);
-                PropertyInfo[] infos = type.GetProperties();
-                SqlCommand command = new SqlCommand();
-                command.Connection = cnn;
-                PropertyInfo id = type.GetProperty("Id");
-                string setters = "";
-                foreach(PropertyInfo item in infos)
+                using (SqlConnection cnn = new SqlConnection())
                 {
-                    if (setters != "")
-                        setters += ", " + item.Name + " = " + item.GetValue(value).ToString();
-                    else
-                        setters += item.Name + " = " + item.GetValue(value).ToString();
+                    cnn.ConnectionString = stringBuilder.ConnectionString;
+                    Type type = typeof(T);
+                    PropertyInfo[] infos = type.GetProperties();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = cnn;
+                    PropertyInfo id = type.GetProperty("Id");
+                    string setters = "";
+                    foreach (PropertyInfo item in infos)
+                    {
+                        if (setters != "")
+                            setters += ", " + item.Name + " = " + item.GetValue(value).ToString();
+                        else
+                            setters += item.Name + " = " + item.GetValue(value).ToString();
+                    }
+                    command.Parameters.AddWithValue("@table", type.Name);
+                    command.Parameters.AddWithValue("@id", id.GetValue(value));
+                    command.CommandText = $"update @table set {setters} where Id = @id";
+                    cnn.Open();
+                    command.ExecuteNonQuery();
+                    return true;
                 }
-                command.Parameters.AddWithValue("@table",type.Name);
-                command.Parameters.AddWithValue("@id",id.GetValue(value));
-                command.CommandText = $"update @table set {setters} where Id = @id";
-                cnn.Open();
-                command.ExecuteNonQuery();
+            }
+            catch
+            {
+                return false;
             }
         }
         public ICollection<T> GetAll()

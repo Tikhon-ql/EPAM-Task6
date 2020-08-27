@@ -31,10 +31,10 @@ namespace SessionLibrary.DaoFactory.Models
             return instance;
         }
 
-        public IDao<Group> GetGroupCreator()
-        {
-            return new GroupCreator(stringBuilder);
-        }
+        //public IDao<Group> GetGroupCreator()
+        //{
+        //    return new GroupCreator(stringBuilder);
+        //}
 
         public IDao<Gender> GetGenderCreator()
         {

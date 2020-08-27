@@ -49,10 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Excel\DataClasses\Abstract\DataClass.cs" />
+    <Compile Include="Excel\DataClasses\SessionResult.cs" />
     <Compile Include="Excel\Interfaces\IExcelWorker.cs" />
     <Compile Include="Excel\Models\ExcelWorker.cs" />
-    <Compile Include="Excel\Models\GroupsAvgMinMax.cs" />
-    <Compile Include="Excel\Models\SessionResultExcel.cs" />
+    <Compile Include="Excel\Models\SessionResultGetter.cs" />
     <Compile Include="_DAO\Interface\IDao.cs" />
     <Compile Include="_DAO\Models\Dao.cs" />
     <Compile Include="_DAO\DaoFactory\Interfaces\IFactory.cs" />
@@ -79,6 +80,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Excel\Resources\SessionResults.xlsx" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

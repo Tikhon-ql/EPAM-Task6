@@ -7,9 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SessionLibrary", "SessionLi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{9C518B3F-AE9E-4CDC-AE61-18D4E76D487B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_SessionUnitTests", "_SessionUnitTests", "{10BFB173-00BA-4843-A432-C4FE8195FCB5}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_SessionDaoUnitTests", "_SessionDaoUnitTests", "{10BFB173-00BA-4843-A432-C4FE8195FCB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SessionLibrary.Tests", "SessionLibrary.Tests\SessionLibrary.Tests.csproj", "{76D2A03D-1589-4249-89D9-BF331C2CEAC2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SessionDao.Tests", "SessionLibrary.Tests\SessionDao.Tests.csproj", "{76D2A03D-1589-4249-89D9-BF331C2CEAC2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

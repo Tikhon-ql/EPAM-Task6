@@ -8,10 +8,10 @@ namespace SessionLibrary._DAO.Interface
 {
     public interface IDao<T>
     {
-        void Create(T value);
+        bool Create(T value);
         T Read(int id);
-        void Delete(int id);
-        void Update(T value);
+        bool Delete(int id);
+        bool Update(T value);
         ICollection<T> GetAll();
     }
 }

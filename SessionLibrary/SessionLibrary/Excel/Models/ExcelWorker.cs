@@ -9,8 +9,9 @@ namespace SessionLibrary.Excel.Models
 {
     public class ExcelWorker : IExcelWorker
     {
-        public void Write<T>(string filename, T object)
+        public void Write<T>(string filename, ICollection<T> collection)
         {
+
         }
     }
 }

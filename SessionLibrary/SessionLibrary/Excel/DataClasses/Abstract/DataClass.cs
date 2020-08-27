@@ -26,7 +26,7 @@ namespace SessionLibrary.Excel.DataClasses.Abstract
         {
             SessionFactory factory = SessionFactory.GetInstence(builder);
             Students = factory.GetStudentCreator().GetAll();
-            Groups = factory.GetGroupCreator().GetAll();
+            //Groups = factory.GetGroupCreator().GetAll();
             Sessions = factory.GetSessionCreator().GetAll();
             Genders = factory.GetGenderCreator().GetAll();
             WorkResults = factory.GetWorkResultCreator().GetAll();

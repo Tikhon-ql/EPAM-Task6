@@ -14,15 +14,17 @@ namespace SessionLibrary.Models.Session
         public int GroupId { get; private set; }
         public DateTime Date { get; set; }
         public int SubjectId { get; set; }
-        public int WorkTypeId{ get; set; }
+        public int WorkTypeId { get; set; }
+        public int SessionId { get; set; }
 
-        public SessionShedule(int id, int groupId, DateTime date, int subjectId, int workTypeId)
+        public SessionShedule(int id, int groupId, DateTime date, int subjectId, int workTypeId,int sesId)
         {
             Id = id;
             GroupId = groupId;
             Date = date;
             SubjectId = subjectId;
             WorkTypeId = workTypeId;
+            SessionId = sesId;
         }
     }
 }

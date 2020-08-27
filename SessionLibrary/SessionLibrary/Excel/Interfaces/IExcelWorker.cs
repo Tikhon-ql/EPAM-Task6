@@ -9,6 +9,6 @@ namespace SessionLibrary.Excel.Interfaces
 {
     interface IExcelWorker
     {
-        void Write<T>(string filename,T object);
+        void Write<T>(string filename,ICollection<T> collection);
     }
 }

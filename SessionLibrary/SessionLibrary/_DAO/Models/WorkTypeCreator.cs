@@ -1,4 +1,5 @@
 ﻿using SessionLibrary.Models;
+using SessionLibrary.Models.Work;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
