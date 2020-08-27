@@ -2,8 +2,10 @@
 using SessionLibrary._DAO.Interface;
 using SessionLibrary._DAO.Models;
 using SessionLibrary.DaoFactory.Interfaces;
-using SessionLibrary.Factory.Interfaces;
 using SessionLibrary.Models;
+using SessionLibrary.Models.Another;
+using SessionLibrary.Models.Session;
+using SessionLibrary.Models.Work;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -16,7 +18,18 @@ namespace SessionLibrary.DaoFactory.Models
 {
     public class SessionFactory:IFactory
     {
-        private SqlConnectionStringBuilder stringBuilder = new SqlConnectionStringBuilder();
+        private static SqlConnectionStringBuilder stringBuilder = new SqlConnectionStringBuilder();
+        private static SessionFactory instance;
+        public static SessionFactory GetInstence(SqlConnectionStringBuilder builder)
+        {
+            if(instance == null)
+            {
+                instance = new SessionFactory();
+                stringBuilder = builder;
+                return instance;
+            }
+            return instance;
+        }
 
         public IDao<Group> GetGroupCreator()
         {
@@ -62,5 +75,6 @@ namespace SessionLibrary.DaoFactory.Models
         {
             return new WorkTypeCreator(stringBuilder);
         }
+
     }
 }

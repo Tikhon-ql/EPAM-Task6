@@ -57,6 +57,7 @@ namespace SessionLibrary._DAO.Models
                 SqlCommand command = new SqlCommand("delete from @table where Id = @id",cnn);
                 command.Parameters.AddWithValue("@id",id);
                 command.Parameters.AddWithValue("@table",type.Name);
+                cnn.Open();
                 command.ExecuteNonQuery();
             }
         }
@@ -71,6 +72,7 @@ namespace SessionLibrary._DAO.Models
                 SqlCommand command = new SqlCommand("select * from @table where Id = @id", cnn);
                 command.Parameters.AddWithValue("@id", id);
                 command.Parameters.AddWithValue("@table", type.Name);
+                cnn.Open();
                 dynamic value = null;
                 using(SqlDataReader sdr = command.ExecuteReader())
                 {
@@ -88,7 +90,51 @@ namespace SessionLibrary._DAO.Models
         {
             using(SqlConnection cnn = new SqlConnection())
             {
-                
+                cnn.ConnectionString = stringBuilder.ConnectionString;
+                Type type = typeof(T);
+                PropertyInfo[] infos = type.GetProperties();
+                SqlCommand command = new SqlCommand();
+                command.Connection = cnn;
+                PropertyInfo id = type.GetProperty("Id");
+                string setters = "";
+                foreach(PropertyInfo item in infos)
+                {
+                    if (setters != "")
+                        setters += ", " + item.Name + " = " + item.GetValue(value).ToString();
+                    else
+                        setters += item.Name + " = " + item.GetValue(value).ToString();
+                }
+                command.Parameters.AddWithValue("@table",type.Name);
+                command.Parameters.AddWithValue("@id",id.GetValue(value));
+                command.CommandText = $"update @table set {setters} where Id = @id";
+                cnn.Open();
+                command.ExecuteNonQuery();
+            }
+        }
+        public ICollection<T> GetAll()
+        {
+            using (SqlConnection cnn = new SqlConnection())
+            {
+                ICollection<T> list = new List<T>();
+                cnn.ConnectionString = stringBuilder.ConnectionString;
+                Type type = typeof(T);
+                PropertyInfo[] infos = type.GetProperties();
+                SqlCommand command = new SqlCommand("select * from @table", cnn);
+                command.Parameters.AddWithValue("@table", type.Name);
+                cnn.Open();
+                dynamic value = null;
+                using (SqlDataReader sdr = command.ExecuteReader())
+                {
+                    while (sdr.Read())
+                    {
+                        foreach (PropertyInfo item in infos)
+                        {
+                            item.SetValue(value, sdr[item.Name]);
+                        }
+                        list.Add(value);
+                    }
+                }
+                return list;
             }
         }
     }

@@ -12,5 +12,6 @@ namespace SessionLibrary._DAO.Interface
         T Read(int id);
         void Delete(int id);
         void Update(T value);
+        ICollection<T> GetAll();
     }
 }
