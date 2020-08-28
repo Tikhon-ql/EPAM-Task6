@@ -13,11 +13,11 @@ namespace SessionLibrary.Models.Another
         public string Name { get; set; }
         public string Surname { get; set; }
         public string MidleName { get; set; }
-        public DateTime Birthday { get; set; }
+       // public DateTime Birthday { get; set; }
         public int GroupId { get; private set; }
         public int GenderId { get; private set; }
 
-        public Student(int id, string name, string surname, string midleName,DateTime brthd, int group, int gender)
+        public Student(int id, string name, string surname, string midleName,/*DateTime brthd*/ int group, int gender)
         {
             Id = id;
             Name = name;
@@ -25,7 +25,7 @@ namespace SessionLibrary.Models.Another
             MidleName = midleName;
             GroupId = group;
             GenderId = gender;
-            Birthday = brthd;
+            //Birthday = brthd;
         }
       
 

@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace SessionLibrary._DAO.Models
 {
-    public class Dao<T>:IDao<T>
+    public class Dao<T> : IDao<T>
     {
         private SqlConnectionStringBuilder stringBuilder = new SqlConnectionStringBuilder();
         public Dao(SqlConnectionStringBuilder builder)
@@ -44,7 +44,7 @@ namespace SessionLibrary._DAO.Models
                         else
                             values += "@" + item.Name;
                     }
-                    command.CommandText = "insert into @table (" + columns + ")" + " values(" + values + ")";
+                    command.CommandText = "insert into Student (" + columns + ")" + " values(" + values + ")";
                     cnn.Open();
                     command.ExecuteNonQuery();
                     return true;
@@ -64,7 +64,7 @@ namespace SessionLibrary._DAO.Models
                 {
                     cnn.ConnectionString = stringBuilder.ConnectionString;
                     Type type = typeof(T);
-                    SqlCommand command = new SqlCommand("delete from @table where Id = @id", cnn);
+                    SqlCommand command = new SqlCommand("delete from Student where Id = @id", cnn);
                     command.Parameters.AddWithValue("@id", id);
                     command.Parameters.AddWithValue("@table", type.Name);
                     cnn.Open();
@@ -80,7 +80,7 @@ namespace SessionLibrary._DAO.Models
 
         public T Read(int id)
         {
-            using(SqlConnection cnn = new SqlConnection())
+            using (SqlConnection cnn = new SqlConnection())
             {
                 cnn.ConnectionString = stringBuilder.ConnectionString;
                 Type type = typeof(T);
@@ -90,10 +90,10 @@ namespace SessionLibrary._DAO.Models
                 command.Parameters.AddWithValue("@table", type.Name);
                 cnn.Open();
                 List<object> _params = new List<object>();
-                using(SqlDataReader sdr = command.ExecuteReader())
+                using (SqlDataReader sdr = command.ExecuteReader())
                 {
                     sdr.Read();
-                    for(int i = 0;i<sdr.FieldCount;i++)
+                    for (int i = 0; i < sdr.FieldCount; i++)
                         _params.Add(sdr[i]);
                 }
                 ////
@@ -123,8 +123,9 @@ namespace SessionLibrary._DAO.Models
                     }
                     command.Parameters.AddWithValue("@table", type.Name);
                     command.Parameters.AddWithValue("@id", id.GetValue(value));
-                    command.CommandText = $"update @table set {setters} where Id = @id";
+                    command.CommandText = $"update Student set {setters} where Id = @id";
                     cnn.Open();
+                    //Invalid column Andrey
                     command.ExecuteNonQuery();
                     return true;
                 }
@@ -142,19 +143,20 @@ namespace SessionLibrary._DAO.Models
                 cnn.ConnectionString = stringBuilder.ConnectionString;
                 Type type = typeof(T);
                 PropertyInfo[] infos = type.GetProperties();
-                SqlCommand command = new SqlCommand("select * from @table", cnn);
+                SqlCommand command = new SqlCommand("select * from Student", cnn);
                 command.Parameters.AddWithValue("@table", type.Name);
                 cnn.Open();
-                dynamic value = null;
+                List<object> _params = new List<object>();
                 using (SqlDataReader sdr = command.ExecuteReader())
                 {
                     while (sdr.Read())
                     {
-                        foreach (PropertyInfo item in infos)
+                        for (int i = 0; i < sdr.FieldCount; i++)
                         {
-                            item.SetValue(value, sdr[item.Name]);
+                            _params.Add(sdr.GetValue(i));
                         }
-                        list.Add(value);
+                        list.Add((T)Activator.CreateInstance(typeof(T),_params));
+                        _params.Clear();
                     }
                 }
                 return list;

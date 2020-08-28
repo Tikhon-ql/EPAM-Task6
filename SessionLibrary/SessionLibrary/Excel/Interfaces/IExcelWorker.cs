@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SessionLibrary.Excel.DataClasses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,6 @@ namespace SessionLibrary.Excel.Interfaces
 {
     interface IExcelWorker
     {
-        void Write<T>(string filename,ICollection<T> collection);
+        void Write(string filename,ICollection<GroupResult> collection);
     }
 }

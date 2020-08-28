@@ -50,7 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Excel\DataClasses\Abstract\DataClass.cs" />
-    <Compile Include="Excel\DataClasses\SessionResult.cs" />
+    <Compile Include="Excel\DataClasses\GroupResult.cs" />
+    <Compile Include="Excel\DataClasses\StudentResult.cs" />
     <Compile Include="Excel\Interfaces\IExcelWorker.cs" />
     <Compile Include="Excel\Models\ExcelWorker.cs" />
     <Compile Include="Excel\Models\SessionResultGetter.cs" />
