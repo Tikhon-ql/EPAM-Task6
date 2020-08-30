@@ -34,5 +34,12 @@ namespace SessionLIbraryExcel.Tests
             List<GroupsAvgMinMax> results = getter.GetGroupsAvgMinMax().ToList<GroupsAvgMinMax>();
             ExcelWorker.WriteGroupAvgMinMax(@"GroupAvgMinMax.xlsx",results);
         }
+        [TestMethod]
+        public void ExcelWriteExpelStudents()
+        {
+            ExpelStudentGetter getter = new ExpelStudentGetter(builder.ConnectionString);
+            List<ExpelStudentsByGroup> results = getter.GetExpelStudents().ToList<ExpelStudentsByGroup>();
+            ExcelWorker.WriteExpelStudents(@"ExpelStudent.xlsx", results);
+        }
     }
 }

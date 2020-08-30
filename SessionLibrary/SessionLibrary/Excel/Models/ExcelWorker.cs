@@ -84,5 +84,42 @@ namespace SessionLibrary.Excel.Models
                 return false;
             }
         }
+        public static bool WriteExpelStudents(string filename,ICollection<ExpelStudentsByGroup> collection)
+        {
+            try
+            {
+                ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+                ExcelPackage package = new ExcelPackage();
+                package.Workbook.Properties.Title = "Expel students";
+                package.Workbook.Properties.Created = DateTime.Now;
+                string[] headers = { "Name", "Surname", "Midle name" };
+                foreach (ExpelStudentsByGroup item in collection)
+                {
+                    if(item.ExpelStudents.Count != 0)
+                    {
+                        ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(item.GroupName);
+                        for (int i = 1; i <= headers.Length; i++)
+                        {
+                            worksheet.Cells[1, i].Value = headers[i - 1];
+                            worksheet.Cells[1, i].Style.Font.Bold = true;
+                            worksheet.Column(i).Width = headers.Length * 5;
+                        }
+                        for (int i = 2, j = 0; j < item.ExpelStudents.Count; i++, j++)
+                        {
+                            worksheet.Cells[i, 1].Value = item.ExpelStudents.ToList()[j].Name;
+                            worksheet.Cells[i, 2].Value = item.ExpelStudents.ToList()[j].Surname;
+                            worksheet.Cells[i, 3].Value = item.ExpelStudents.ToList()[j].MidleName;
+                        }
+                    }
+                }
+                FileInfo fi = new FileInfo(filename);
+                package.SaveAs(fi);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

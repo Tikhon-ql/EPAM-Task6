@@ -53,11 +53,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Excel\DataClasses\Abstract\DataClass.cs" />
+    <Compile Include="Excel\DataClasses\ExpelStudent.cs" />
+    <Compile Include="Excel\DataClasses\ExpelStudentsByGroup.cs" />
     <Compile Include="Excel\DataClasses\GroupResult.cs" />
     <Compile Include="Excel\DataClasses\GroupsAvgMinMax.cs" />
     <Compile Include="Excel\DataClasses\StudentResult.cs" />
     <Compile Include="Excel\Models\AllGroupsAvgMaxMinGetter.cs" />
     <Compile Include="Excel\Models\ExcelWorker.cs" />
+    <Compile Include="Excel\Models\ExpelStudentGetter.cs" />
     <Compile Include="Excel\Models\SessionResultGetter.cs" />
     <Compile Include="_DAO\Interface\IDao.cs" />
     <Compile Include="_DAO\Models\Dao.cs" />
