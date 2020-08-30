@@ -1,46 +1,87 @@
 ﻿using OfficeOpenXml;
 using SessionLibrary.Excel.DataClasses;
-using SessionLibrary.Excel.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LicenseContext = OfficeOpenXml.LicenseContext;
 
 namespace SessionLibrary.Excel.Models
 {
-    public class ExcelWorker : IExcelWorker
+    public static class ExcelWorker
     {
-        public void Write(string filename, ICollection<GroupResult> collection)
+        public static bool WriteSessionResults(string filename, ICollection<GroupResult> collection)
         {
-            using(ExcelPackage package = new ExcelPackage())
+            try
             {
+                ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+                ExcelPackage package = new ExcelPackage();
                 package.Workbook.Properties.Title = "Session results";
                 package.Workbook.Properties.Created = DateTime.Now;
                 string[] headers = { "Surname", "Name", "Midle name", "Date", "Subject", "Work's type", "Result" };
-                foreach(GroupResult item in collection)
+                foreach (GroupResult item in collection)
                 {
                     ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(item.GroupName);
-                    for(int i = 1; i <= headers.Length;i++)
+                    for (int i = 1; i <= headers.Length; i++)
                     {
-                        worksheet.Cells[1, i].Value = headers[--i];
+                        worksheet.Cells[1, i].Value = headers[i - 1];
+                        worksheet.Cells[1, i].Style.Font.Bold = true;
+                        worksheet.Column(i).Width = headers.Length * 2;
                     }
-                    for(int i = 0;i < item.StudentResults.Count; i++)
+                    for (int i = 2, j = 0; j < item.StudentResults.Count; i++, j++)
                     {
-                        worksheet.Cells[i, 1].Value = item.StudentResults.ToList()[i].StudentSurname;
-                        worksheet.Cells[i, 2].Value = item.StudentResults.ToList()[i].StudentName;
-                        worksheet.Cells[i, 3].Value = item.StudentResults.ToList()[i].StudentMidleName;
-                        worksheet.Cells[i, 4].Value = item.StudentResults.ToList()[i].Date;
-                        worksheet.Cells[i, 5].Value = item.StudentResults.ToList()[i].Subject;
-                        worksheet.Cells[i, 6].Value = item.StudentResults.ToList()[i].WorkType;
-                        worksheet.Cells[i, 7].Value = item.StudentResults.ToList()[i].Result;
-                        worksheet.Dispose();
+                        worksheet.Cells[i, 1].Value = item.StudentResults.ToList()[j].StudentSurname;
+                        worksheet.Cells[i, 2].Value = item.StudentResults.ToList()[j].StudentName;
+                        worksheet.Cells[i, 3].Value = item.StudentResults.ToList()[j].StudentMidleName;
+                        worksheet.Cells[i, 4].Value = item.StudentResults.ToList()[j].Date.ToShortDateString();
+                        worksheet.Cells[i, 5].Value = item.StudentResults.ToList()[j].Subject;
+                        worksheet.Cells[i, 6].Value = item.StudentResults.ToList()[j].WorkType;
+                        worksheet.Cells[i, 7].Value = item.StudentResults.ToList()[j].Result;
                     }
                 }
                 FileInfo fi = new FileInfo(filename);
                 package.SaveAs(fi);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public static bool WriteGroupAvgMinMax(string filename, ICollection<GroupsAvgMinMax> collection)
+        {
+            try
+            {
+                ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+                ExcelPackage package = new ExcelPackage();
+                package.Workbook.Properties.Title = "Session results";
+                package.Workbook.Properties.Created = DateTime.Now;
+                string[] headers = { "Group's name", "Average", "Minimum", "Maximum" };
+                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("All groups");
+                for (int i = 1; i <= headers.Length; i++)
+                {
+                    worksheet.Cells[1, i].Value = headers[i - 1];
+                    worksheet.Cells[1, i].Style.Font.Bold = true;
+                    worksheet.Column(i).Width = headers.Length * 5;
+                }
+                for (int i = 2, j = 0;j < collection.Count; i++,j++)
+                {
+                    worksheet.Cells[i, 1].Value = collection.ToList()[j].GroupName;
+                    worksheet.Cells[i, 2].Value = collection.ToList()[j].Avg.ToString();
+                    worksheet.Cells[i, 3].Value = collection.ToList()[j].Min.ToString();
+                    worksheet.Cells[i, 4].Value = collection.ToList()[j].Max.ToString();
+                }
+                FileInfo fi = new FileInfo(filename);
+                package.SaveAs(fi);
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
     }

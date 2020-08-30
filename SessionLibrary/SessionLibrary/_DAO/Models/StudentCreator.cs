@@ -12,6 +12,6 @@ namespace SessionLibrary._DAO.Models
 {
     public class StudentCreator : Dao<Student>
     {
-        public StudentCreator(SqlConnectionStringBuilder stringBuild) : base(stringBuild) { }
+        public StudentCreator(string str) : base(str) { }
     }
 }

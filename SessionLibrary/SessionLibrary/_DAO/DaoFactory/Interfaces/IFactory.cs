@@ -16,7 +16,7 @@ namespace SessionLibrary.DaoFactory.Interfaces
     {
         IDao<Student> GetStudentCreator();
         IDao<Gender> GetGenderCreator();
-        //IDao<Group> GetGroupCreator();
+        IDao<Group> GetGroupCreator();
         IDao<Session> GetSessionCreator();
         IDao<SessionShedule> GetSessionSheduleCreator();
         IDao<WorkResult> GetWorkResultCreator();

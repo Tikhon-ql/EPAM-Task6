@@ -18,62 +18,62 @@ namespace SessionLibrary.DaoFactory.Models
 {
     public class SessionFactory:IFactory
     {
-        private static SqlConnectionStringBuilder stringBuilder = new SqlConnectionStringBuilder();
+        private static string connectionString;
         private static SessionFactory instance;
-        public static SessionFactory GetInstence(SqlConnectionStringBuilder builder)
+        public static SessionFactory GetInstence(string connectionStr)
         {
             if(instance == null)
             {
                 instance = new SessionFactory();
-                stringBuilder = builder;
+                connectionString = connectionStr;
                 return instance;
             }
             return instance;
         }
 
-        //public IDao<Group> GetGroupCreator()
-        //{
-        //    return new GroupCreator(stringBuilder);
-        //}
+        public IDao<Group> GetGroupCreator()
+        {
+            return new GroupCreator(connectionString);
+        }
 
         public IDao<Gender> GetGenderCreator()
         {
-            return new GenderCreator(stringBuilder);
+            return new GenderCreator(connectionString);
         }
 
         public IDao<Session> GetSessionCreator()
         {
-            return new SessionCreator(stringBuilder);
+            return new SessionCreator(connectionString);
         }
 
         public IDao<SessionShedule> GetSessionSheduleCreator()
         {
-            return new SessionSheduleCreator(stringBuilder);
+            return new SessionSheduleCreator(connectionString);
         }
 
         public IDao<SessionType> GetSessionTypeCreator()
         {
-            return new SessionTypeCreator(stringBuilder);
+            return new SessionTypeCreator(connectionString);
         }
 
         public IDao<Student> GetStudentCreator()
         {
-            return new StudentCreator(stringBuilder);
+            return new StudentCreator(connectionString);
         }
 
         public IDao<Subject> GetSubjectCreator()
         {
-            return new SubjectCreator(stringBuilder);
+            return new SubjectCreator(connectionString);
         }
 
         public IDao<WorkResult> GetWorkResultCreator()
         {
-            return new WorkResultCreator(stringBuilder);
+            return new WorkResultCreator(connectionString);
         }
 
         public IDao<WorkType> GetWorkTypeCreator()
         {
-            return new WorkTypeCreator(stringBuilder);
+            return new WorkTypeCreator(connectionString);
         }
 
     }

@@ -11,6 +11,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_SessionDaoUnitTests", "_Se
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SessionDao.Tests", "SessionLibrary.Tests\SessionDao.Tests.csproj", "{76D2A03D-1589-4249-89D9-BF331C2CEAC2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExcelUnitTests", "ExcelUnitTests", "{B3A7DC40-C27D-40FB-A594-30916A40E128}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SessionLIbraryExcel.Tests", "SessionLIbraryExcel.Tests\SessionLIbraryExcel.Tests.csproj", "{C6218CA1-D800-4B24-A0D4-368F68854F32}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{B0CAC803-272C-4F00-8151-9E3F6C905D29}"
+	ProjectSection(SolutionItems) = preProject
+		SessionLIbraryExcel.Tests\bin\Debug\GroupAvgMinMax.xlsx = SessionLIbraryExcel.Tests\bin\Debug\GroupAvgMinMax.xlsx
+		SessionLIbraryExcel.Tests\bin\Debug\SessionResults.xlsx = SessionLIbraryExcel.Tests\bin\Debug\SessionResults.xlsx
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +35,10 @@ Global
 		{76D2A03D-1589-4249-89D9-BF331C2CEAC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76D2A03D-1589-4249-89D9-BF331C2CEAC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76D2A03D-1589-4249-89D9-BF331C2CEAC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6218CA1-D800-4B24-A0D4-368F68854F32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6218CA1-D800-4B24-A0D4-368F68854F32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6218CA1-D800-4B24-A0D4-368F68854F32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6218CA1-D800-4B24-A0D4-368F68854F32}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +46,9 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{10BFB173-00BA-4843-A432-C4FE8195FCB5} = {9C518B3F-AE9E-4CDC-AE61-18D4E76D487B}
 		{76D2A03D-1589-4249-89D9-BF331C2CEAC2} = {10BFB173-00BA-4843-A432-C4FE8195FCB5}
+		{B3A7DC40-C27D-40FB-A594-30916A40E128} = {9C518B3F-AE9E-4CDC-AE61-18D4E76D487B}
+		{C6218CA1-D800-4B24-A0D4-368F68854F32} = {B3A7DC40-C27D-40FB-A594-30916A40E128}
+		{B0CAC803-272C-4F00-8151-9E3F6C905D29} = {B3A7DC40-C27D-40FB-A594-30916A40E128}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F12D82E5-BDC3-4607-AF66-A77A0B44D8BA}

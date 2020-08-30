@@ -13,11 +13,16 @@ namespace SessionLibrary.Models.Another
         public string Name { get; set; }
         public string Surname { get; set; }
         public string MidleName { get; set; }
-       // public DateTime Birthday { get; set; }
+        //public DateTime Birthday { get; set; }
         public int GroupId { get; private set; }
         public int GenderId { get; private set; }
 
-        public Student(int id, string name, string surname, string midleName,/*DateTime brthd*/ int group, int gender)
+        public Student()
+        {
+
+        }
+
+        public Student(int id, string name, string surname, string midleName,/* DateTime brthd,*/ int gender,int group)
         {
             Id = id;
             Name = name;
@@ -27,7 +32,7 @@ namespace SessionLibrary.Models.Another
             GenderId = gender;
             //Birthday = brthd;
         }
-      
+
 
         public override bool Equals(object obj)
         {

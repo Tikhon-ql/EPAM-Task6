@@ -14,7 +14,7 @@ namespace SessionLibrary.Models.Work
         public string Result { get; set; }
         public int WorkTypeId { get; set; }
 
-        public WorkResult(int id, int student, int subject, string result,int workTypeId)
+        public WorkResult(int id, string result,  int student, int subject, int workTypeId)
         {
             Id = id;
             StudentId = student;

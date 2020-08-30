@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace SessionLibrary.Excel.DataClasses.Abstract
 {
-    public class DataClass
+    public abstract class DataClass
     {
         public ICollection<Student> Students { get; set; }
         public ICollection<Group> Groups { get; set; }
@@ -22,11 +22,11 @@ namespace SessionLibrary.Excel.DataClasses.Abstract
         public ICollection<Subject> Subjects { get; set; }
         public ICollection<Session> Sessions { get; set; }
         public ICollection<SessionType> SessionTypes { get; set; }
-        public DataClass(SqlConnectionStringBuilder builder)
+        public DataClass(string connect)
         {
-            SessionFactory factory = SessionFactory.GetInstence(builder);
+            SessionFactory factory = SessionFactory.GetInstence(connect);
             Students = factory.GetStudentCreator().GetAll();
-            //Groups = factory.GetGroupCreator().GetAll();
+            Groups = factory.GetGroupCreator().GetAll();
             Sessions = factory.GetSessionCreator().GetAll();
             Genders = factory.GetGenderCreator().GetAll();
             WorkResults = factory.GetWorkResultCreator().GetAll();

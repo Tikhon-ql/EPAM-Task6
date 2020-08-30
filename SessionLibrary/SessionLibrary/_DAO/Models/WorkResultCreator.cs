@@ -11,6 +11,6 @@ namespace SessionLibrary._DAO.Models
 {
     public class WorkResultCreator:Dao<WorkResult>
     {
-        public WorkResultCreator(SqlConnectionStringBuilder stringBuild) : base(stringBuild) { }
+        public WorkResultCreator(string str) : base(str) { }
     }
 }

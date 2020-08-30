@@ -13,7 +13,11 @@ namespace SessionLibrary.Models.Session
         public string AcademicYears { get; set; }
         public int SessionTypeId { get; set; }
 
-        public Session(int id, string academicYears, int sessionTypeId)
+        public Session()
+        {
+                
+        }
+        public Session(int id, int sessionTypeId, string academicYears)
         {
             Id = id;
             AcademicYears = academicYears;

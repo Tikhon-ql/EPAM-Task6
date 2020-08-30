@@ -11,6 +11,6 @@ namespace SessionLibrary._DAO.Models
 {
     public class SubjectCreator:Dao<Subject>
     {
-        public SubjectCreator(SqlConnectionStringBuilder stringBuild) : base(stringBuild) { }
+        public SubjectCreator(string str) : base(str) { }
     }
 }

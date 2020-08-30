@@ -13,6 +13,7 @@ namespace SessionLibrary.Excel.DataClasses
         public GroupResult(string groupName)
         {
             GroupName = groupName;
+            StudentResults = new List<StudentResult>();
         }
     }
 }

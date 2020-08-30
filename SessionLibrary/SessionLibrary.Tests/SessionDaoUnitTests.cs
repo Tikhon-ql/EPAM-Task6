@@ -17,10 +17,10 @@ namespace SessionDao.Tests
         {
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             builder.DataSource = @"(localdb)\mssqllocaldb";
-            builder.InitialCatalog = @"SessionLibrary.MDF";
+            builder.InitialCatalog = @"SessionLibrary";
             builder.IntegratedSecurity = true;
             builder.AttachDBFilename = @"D:\Тихон\Git\EPAM-Task6\SessionLibrary\SessionLibrary.mdf";
-            factory = SessionFactory.GetInstence(builder);
+            factory = SessionFactory.GetInstence(builder.ConnectionString);
         }
         [DynamicData(nameof(TestMethodCreate),DynamicDataSourceType.Method)]
         [DataTestMethod]
@@ -37,8 +37,8 @@ namespace SessionDao.Tests
         {
             return new[]
             {
-                new Student[] { new Student(15,"Pavel", "Pavlov","Pavlovich", 2,1) },
-                new Student[] { new Student(16,"Stas", "Statsov","Stasovich", 3,1) },
+                new Student[] { new Student(15,"Pavel", "Pavlov","Pavlovich",/*new DateTime(2000,10,16) ,*/2,1) },
+                new Student[] { new Student(16,"Stas", "Statsov","Stasovich",/* new DateTime(1999, 01, 15),*/ 3,1) },
             };
         }
         //[DynamicData(nameof(TestMethodRead), DynamicDataSourceType.Method)]
@@ -90,12 +90,12 @@ namespace SessionDao.Tests
             //arrange
             StudentCreator stCreator = (StudentCreator)factory.GetStudentCreator();
             List<Student> expected = new List<Student> {new Student(1,"Ivan","Ivanov","Ivanovich",1,1), new Student(2, "Andrey", "Andreev", "Andreevich", 1, 1),
-                                                        new Student(3,"Sergey","Sergeev","Sergeevich",1,1),new Student(4,"Anna","Ivanova","Ivanovna",1,2),
-                                                        new Student(5,"Alexandra","Krasnova","Sergeevna",2,2),new Student(6,"Petr","Petrov","Petrovich",2,1),
-                                                        new Student(7,"Evgeniy","Kirpitch","Victorivich",2,1),new Student(8,"Stepan","Stepanov","Stepanovich",3,1),
-                                                        new Student(9,"Maxim","Maximov","Maximovich",3,1),new Student(10,"Oleg","Ryba","Olegovich",3,1),
-                                                        new Student(11,"Ecaterina","Pervaya","Alecseevna",4,2),new Student(12,"Ilya","Ilyn","Ivanovich",4,1),
-                                                        new Student(13,"Denis","Denisov","Denisovich",4,1), new Student(14,"Sonya","Sonnaya","Genadyena",4,2)};
+                                                        new Student(3,"Sergey","Sergeev","Sergeevich",1,1),new Student(4,"Anna","Ivanova","Ivanovna",2,1),
+                                                        new Student(5,"Alexandra","Krasnova","Sergeevna",2,2),new Student(6,"Petr","Petrov","Petrovich",1,2),
+                                                        new Student(7,"Evgeniy","Kirpitch","Victorivich",1,2),new Student(8,"Stepan","Stepanov","Stepanovich",1,3),
+                                                        new Student(9,"Maxim","Maximov","Maximovich",1,3),new Student(10,"Oleg","Ryba","Olegovich",1,3),
+                                                        new Student(11,"Ecaterina","Pervaya","Alecseevna",2,4),new Student(12,"Ilya","Ilyn","Ivanovich",1,4),
+                                                        new Student(13,"Denis","Denisov","Denisovich",1,4), new Student(14,"Sonya","Sonnaya","Genadyena",2,4)};
             //act
             List<Student> actual = stCreator.GetAll().ToList();
             //assert

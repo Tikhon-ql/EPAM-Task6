@@ -14,7 +14,7 @@ namespace SessionLibrary.Excel.Models
 {
     public class SessionResultGetter:DataClass
     {
-        public SessionResultGetter(SqlConnectionStringBuilder builder):base(builder){ }
+        public SessionResultGetter(string connect):base(connect){ }
         public ICollection<GroupResult> GetSessionResult(int sessionId)
         {
             Session currentSession = Sessions.FirstOrDefault(s => s.Id == sessionId);
@@ -34,6 +34,7 @@ namespace SessionLibrary.Excel.Models
                         result.StudentResults.Add(new StudentResult(shedule.Date,subject.SubjectName,student.Name,student.Surname,student.MidleName,type.WorkTypeName,item.Result));
                     }
                 }
+                
                 results.Add(result);
             }
             return results;

@@ -11,6 +11,6 @@ namespace SessionLibrary._DAO.Models
 {
     public class GenderCreator:Dao<Gender>
     {
-        public GenderCreator(SqlConnectionStringBuilder stringBuild) : base(stringBuild) { }
+        public GenderCreator(string str) : base(str) { }
     }
 }

@@ -17,7 +17,7 @@ namespace SessionLibrary.Models.Session
         public int WorkTypeId { get; set; }
         public int SessionId { get; set; }
 
-        public SessionShedule(int id, int groupId, DateTime date, int subjectId, int workTypeId,int sesId)
+        public SessionShedule(int id, int groupId, DateTime date, int workTypeId, int subjectId, int sesId)
         {
             Id = id;
             GroupId = groupId;

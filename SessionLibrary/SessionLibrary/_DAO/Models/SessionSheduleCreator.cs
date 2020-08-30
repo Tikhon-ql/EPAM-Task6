@@ -11,6 +11,6 @@ namespace SessionLibrary._DAO.Models
 {
     public class SessionSheduleCreator:Dao<SessionShedule>
     {
-        public SessionSheduleCreator(SqlConnectionStringBuilder stringBuild) : base(stringBuild) { }
+        public SessionSheduleCreator(string str) : base(str) { }
     }
 }
