@@ -37,9 +37,9 @@ namespace SessionLIbraryExcel.Tests
         [TestMethod]
         public void ExcelWriteExpelStudents()
         {
-            ExpelStudentGetter getter = new ExpelStudentGetter(builder.ConnectionString);
-            List<ExpelStudentsByGroup> results = getter.GetExpelStudents().ToList<ExpelStudentsByGroup>();
-            ExcelWorker.WriteExpelStudents(@"ExpelStudent.xlsx", results);
+            DropoutStudentsGetter getter = new DropoutStudentsGetter(builder.ConnectionString);
+            List<DropOutStudentsByGroup> results = getter.GetExpelStudents().ToList<DropOutStudentsByGroup>();
+            ExcelWorker.WriteDropoutStudents(@"DropoutStudents.xlsx", results);
         }
     }
 }

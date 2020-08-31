@@ -10,15 +10,22 @@ using System.Threading.Tasks;
 
 namespace SessionLibrary.Excel.Models
 {
-    public class ExpelStudentGetter : DataClass
+    /// <summary>
+    /// Dropout students getter 
+    /// </summary>
+    public class DropoutStudentsGetter : DataClass
     {
-        public ExpelStudentGetter(string connect) : base(connect) { }
-        public IEnumerable<ExpelStudentsByGroup> GetExpelStudents()
+        public DropoutStudentsGetter(string connect) : base(connect) { }
+        /// <summary>
+        /// Get dropout students method
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<DropOutStudentsByGroup> GetExpelStudents()
         {
-            List<ExpelStudentsByGroup> result = new List<ExpelStudentsByGroup>();
+            List<DropOutStudentsByGroup> result = new List<DropOutStudentsByGroup>();
             foreach(Group group in Groups)
             {
-                ExpelStudentsByGroup expel = new ExpelStudentsByGroup(group.GroupName);
+                DropOutStudentsByGroup expel = new DropOutStudentsByGroup(group.GroupName);
                 List<Student> students = Students.Where(s => s.GroupId == group.Id).ToList();
                 foreach(Student stud in students)
                 {
@@ -29,7 +36,7 @@ namespace SessionLibrary.Excel.Models
                         {
                             if(int.Parse(res.Result) <= 3)
                             {
-                                expel.ExpelStudents.Add(new ExpelStudent(stud.Name, stud.Surname, stud.MidleName));
+                                expel.DropoutStudent.Add(new DropoutStudent(stud.Name, stud.Surname, stud.MidleName));
                                 break;
                             }
                         }
@@ -37,7 +44,7 @@ namespace SessionLibrary.Excel.Models
                         {
                             if(res.Result == "Uncredit")
                             {
-                                expel.ExpelStudents.Add(new ExpelStudent(stud.Name, stud.Surname, stud.MidleName));
+                                expel.DropoutStudent.Add(new DropoutStudent(stud.Name, stud.Surname, stud.MidleName));
                                 break;
                             }
                         }

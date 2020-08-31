@@ -12,9 +12,17 @@ using System.Threading.Tasks;
 
 namespace SessionLibrary.Excel.Models
 {
+    /// <summary>
+    /// The class, that get sessin results 
+    /// </summary>
     public class SessionResultGetter:DataClass
     {
         public SessionResultGetter(string connect):base(connect){ }
+        /// <summary>
+        /// Get session results method
+        /// </summary>
+        /// <param name="sessionId">Session id</param>
+        /// <returns></returns>
         public ICollection<GroupResult> GetSessionResult(int sessionId)
         {
             Session currentSession = Sessions.FirstOrDefault(s => s.Id == sessionId);

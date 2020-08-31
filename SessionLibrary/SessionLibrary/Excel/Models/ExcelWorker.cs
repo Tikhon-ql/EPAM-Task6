@@ -12,8 +12,17 @@ using LicenseContext = OfficeOpenXml.LicenseContext;
 
 namespace SessionLibrary.Excel.Models
 {
+    /// <summary>
+    /// Excel worker
+    /// </summary>
     public static class ExcelWorker
     {
+        /// <summary>
+        /// Write session result's in xlsx file 
+        /// </summary>
+        /// <param name="filename">File's name</param>
+        /// <param name="collection">List of results</param>
+        /// <returns></returns>
         public static bool WriteSessionResults(string filename, ICollection<GroupResult> collection)
         {
             try
@@ -52,6 +61,12 @@ namespace SessionLibrary.Excel.Models
                 return false;
             }
         }
+        /// <summary>
+        /// Write all group with them average, minimum and maximum results
+        /// </summary>
+        /// <param name="filename">File's name</param>
+        /// <param name="collection">List of groups</param>
+        /// <returns></returns>
         public static bool WriteGroupAvgMinMax(string filename, ICollection<GroupsAvgMinMax> collection)
         {
             try
@@ -84,7 +99,13 @@ namespace SessionLibrary.Excel.Models
                 return false;
             }
         }
-        public static bool WriteExpelStudents(string filename,ICollection<ExpelStudentsByGroup> collection)
+        /// <summary>
+        /// Write dropour students by groups
+        /// </summary>
+        /// <param name="filename">File's name</param>
+        /// <param name="collection">List of dropout students</param>
+        /// <returns></returns>
+        public static bool WriteDropoutStudents(string filename,ICollection<DropOutStudentsByGroup> collection)
         {
             try
             {
@@ -93,9 +114,9 @@ namespace SessionLibrary.Excel.Models
                 package.Workbook.Properties.Title = "Expel students";
                 package.Workbook.Properties.Created = DateTime.Now;
                 string[] headers = { "Name", "Surname", "Midle name" };
-                foreach (ExpelStudentsByGroup item in collection)
+                foreach (DropOutStudentsByGroup item in collection)
                 {
-                    if(item.ExpelStudents.Count != 0)
+                    if(item.DropoutStudent.Count != 0)
                     {
                         ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(item.GroupName);
                         for (int i = 1; i <= headers.Length; i++)
@@ -104,11 +125,11 @@ namespace SessionLibrary.Excel.Models
                             worksheet.Cells[1, i].Style.Font.Bold = true;
                             worksheet.Column(i).Width = headers.Length * 5;
                         }
-                        for (int i = 2, j = 0; j < item.ExpelStudents.Count; i++, j++)
+                        for (int i = 2, j = 0; j < item.DropoutStudent.Count; i++, j++)
                         {
-                            worksheet.Cells[i, 1].Value = item.ExpelStudents.ToList()[j].Name;
-                            worksheet.Cells[i, 2].Value = item.ExpelStudents.ToList()[j].Surname;
-                            worksheet.Cells[i, 3].Value = item.ExpelStudents.ToList()[j].MidleName;
+                            worksheet.Cells[i, 1].Value = item.DropoutStudent.ToList()[j].Name;
+                            worksheet.Cells[i, 2].Value = item.DropoutStudent.ToList()[j].Surname;
+                            worksheet.Cells[i, 3].Value = item.DropoutStudent.ToList()[j].MidleName;
                         }
                     }
                 }

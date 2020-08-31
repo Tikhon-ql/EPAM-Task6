@@ -7,22 +7,22 @@ using System.Threading.Tasks;
 namespace SessionLibrary.Excel.DataClasses
 {
     /// <summary>
-    /// Results by group class 
+    /// The class, that stores the group's name and the list of students to drop out
     /// </summary>
-    public class GroupResult
+    public class DropOutStudentsByGroup
     {
         /// <summary>
         /// Group's name property
         /// </summary>
         public string GroupName { get; set; }
         /// <summary>
-        /// List of results property
+        /// List of students to drop out property
         /// </summary>
-        public ICollection<StudentResult> StudentResults { get; set; }
-        public GroupResult(string groupName)
+        public List<DropoutStudent> DropoutStudent { get; set; }
+        public DropOutStudentsByGroup(string groupName)
         {
             GroupName = groupName;
-            StudentResults = new List<StudentResult>();
+            DropoutStudent = new List<DropoutStudent>();
         }
     }
 }

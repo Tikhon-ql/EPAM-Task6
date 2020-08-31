@@ -11,9 +11,16 @@ using System.Threading.Tasks;
 
 namespace SessionLibrary.Excel.Models
 {
+    /// <summary>
+    /// The class, that provide all groups with them average, minimum and maximum results
+    /// </summary>
     public class AllGroupsAvgMaxMinGetter : DataClass
     {
         public AllGroupsAvgMaxMinGetter(string connect) : base(connect) { }
+        /// <summary>
+        /// Get groups with them average, minimum and maximum results method
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<GroupsAvgMinMax> GetGroupsAvgMinMax()
         {
             List<GroupsAvgMinMax> results = new List<GroupsAvgMinMax>();

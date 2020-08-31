@@ -11,16 +11,46 @@ using System.Threading.Tasks;
 
 namespace SessionLibrary.Excel.DataClasses.Abstract
 {
+    /// <summary>
+    /// All data haver's abstract class 
+    /// </summary>
     public abstract class DataClass
     {
+        /// <summary>
+        /// All students
+        /// </summary>
         public ICollection<Student> Students { get; set; }
+        /// <summary>
+        /// All groups
+        /// </summary>
         public ICollection<Group> Groups { get; set; }
+        /// <summary>
+        /// All genders
+        /// </summary>
         public ICollection<Gender> Genders { get; set; }
+        /// <summary>
+        /// All session shedules
+        /// </summary>
         public ICollection<SessionShedule> SessionShedules { get; set; }
+        /// <summary>
+        /// All work types
+        /// </summary>
         public ICollection<WorkType> WorkTypes { get; set; }
+        /// <summary>
+        /// All work results
+        /// </summary>
         public ICollection<WorkResult> WorkResults { get; set; }
+        /// <summary>
+        /// All subjects
+        /// </summary>
         public ICollection<Subject> Subjects { get; set; }
+        /// <summary>
+        /// All sessions
+        /// </summary>
         public ICollection<Session> Sessions { get; set; }
+        /// <summary>
+        /// All session types
+        /// </summary>
         public ICollection<SessionType> SessionTypes { get; set; }
         public DataClass(string connect)
         {
