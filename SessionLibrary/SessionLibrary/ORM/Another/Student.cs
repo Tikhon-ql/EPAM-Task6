@@ -5,16 +5,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SessionLibrary.Models.Another
+namespace SessionLibrary.ORM.Another
 {
+    /// <summary>
+    /// Student's class
+    /// </summary>
     public class Student
     {
+        /// <summary>
+        /// Student's id property
+        /// </summary>
         public int Id { get; private set; }
+        /// <summary>
+        /// Student's name property
+        /// </summary>
         public string Name { get; set; }
+        /// <summary>
+        /// Student's surname property
+        /// </summary>
         public string Surname { get; set; }
+        /// <summary>
+        /// Student's midle name property
+        /// </summary>
         public string MidleName { get; set; }
-        //public DateTime Birthday { get; set; }
+        /// <summary>
+        /// Group's id property
+        /// </summary>
         public int GroupId { get; private set; }
+        /// <summary>
+        /// Gender's id property
+        /// </summary>
         public int GenderId { get; private set; }
 
         public Student()
@@ -22,7 +42,7 @@ namespace SessionLibrary.Models.Another
 
         }
 
-        public Student(int id, string name, string surname, string midleName,/* DateTime brthd,*/ int gender,int group)
+        public Student(int id, string name, string surname, string midleName, int gender,int group)
         {
             Id = id;
             Name = name;
@@ -30,7 +50,6 @@ namespace SessionLibrary.Models.Another
             MidleName = midleName;
             GroupId = group;
             GenderId = gender;
-            //Birthday = brthd;
         }
 
 

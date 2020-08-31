@@ -2,10 +2,9 @@
 using SessionLibrary._DAO.Interface;
 using SessionLibrary._DAO.Models;
 using SessionLibrary.DaoFactory.Interfaces;
-using SessionLibrary.Models;
-using SessionLibrary.Models.Another;
-using SessionLibrary.Models.Session;
-using SessionLibrary.Models.Work;
+using SessionLibrary.ORM.Another;
+using SessionLibrary.ORM.Session;
+using SessionLibrary.ORM.Work;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -16,10 +15,24 @@ using System.Threading.Tasks;
 
 namespace SessionLibrary.DaoFactory.Models
 {
+    /// <summary>
+    /// Factory's class
+    /// </summary>
     public class SessionFactory:IFactory
     {
+        /// <summary>
+        /// String for connection to database 
+        /// </summary>
         private static string connectionString;
+        /// <summary>
+        /// Instance of factory
+        /// </summary>
         private static SessionFactory instance;
+        /// <summary>
+        /// Get factory's instance
+        /// </summary>
+        /// <param name="connectionStr"></param>
+        /// <returns></returns>
         public static SessionFactory GetInstence(string connectionStr)
         {
             if(instance == null)

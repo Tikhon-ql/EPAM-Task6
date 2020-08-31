@@ -1,8 +1,8 @@
 ﻿using SessionLibrary.Excel.DataClasses;
 using SessionLibrary.Excel.DataClasses.Abstract;
-using SessionLibrary.Models.Another;
-using SessionLibrary.Models.Session;
-using SessionLibrary.Models.Work;
+using SessionLibrary.ORM.Another;
+using SessionLibrary.ORM.Session;
+using SessionLibrary.ORM.Work;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;

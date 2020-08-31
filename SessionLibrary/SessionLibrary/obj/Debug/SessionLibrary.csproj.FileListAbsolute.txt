@@ -1,4 +1,3 @@
-D:\Тихон\Git\EPAM-Task6\SessionLibrary\SessionLibrary\obj\Debug\SessionLibrary.csprojAssemblyReference.cache
 D:\Тихон\Git\EPAM-Task6\SessionLibrary\SessionLibrary\obj\Debug\SessionLibrary.csproj.CoreCompileInputs.cache
 D:\Тихон\Git\EPAM-Task6\SessionLibrary\SessionLibrary\bin\Debug\SessionLibrary.dll
 D:\Тихон\Git\EPAM-Task6\SessionLibrary\SessionLibrary\bin\Debug\SessionLibrary.pdb

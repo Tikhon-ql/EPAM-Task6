@@ -12,8 +12,15 @@ using System.Threading.Tasks;
 
 namespace SessionLibrary._DAO.Models
 {
+    /// <summary>
+    /// Dao's class
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class Dao<T> : IDao<T>
     {
+        /// <summary>
+        /// Connection string 
+        /// </summary>
         private string connectionString;
         public Dao(string str)
         {
