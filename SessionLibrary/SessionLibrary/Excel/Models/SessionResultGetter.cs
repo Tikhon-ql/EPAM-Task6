@@ -1,5 +1,6 @@
 ﻿using SessionLibrary.Excel.DataClasses;
 using SessionLibrary.Excel.DataClasses.Abstract;
+using SessionLibrary.Excel.Enums;
 using SessionLibrary.ORM.Another;
 using SessionLibrary.ORM.Session;
 using SessionLibrary.ORM.Work;
@@ -45,6 +46,40 @@ namespace SessionLibrary.Excel.Models
                 
                 results.Add(result);
             }
+            return results;
+        }
+        /// <summary>
+        /// Get session results with sorting
+        /// </summary>
+        /// <param name="sessionId">Session's id</param>
+        /// <param name="func">Property for sorting</param>
+        /// <param name="stype">Sorting type</param>
+        /// <returns></returns>
+        public ICollection<GroupResult> GetSessionResult(int sessionId,Func<GroupResult,object> func,SortType stype)
+        {
+            Session currentSession = Sessions.FirstOrDefault(s => s.Id == sessionId);
+            SessionShedule shedule = SessionShedules.FirstOrDefault(s => s.SessionId == currentSession.Id);
+            List<GroupResult> results = new List<GroupResult>();
+            foreach (Group group in Groups)
+            {
+                GroupResult result = new GroupResult(group.GroupName);
+                List<Student> students = Students.Where(s => s.GroupId == group.Id).ToList();
+                foreach (Student student in students)
+                {
+                    List<WorkResult> workResults = WorkResults.Where(w => w.StudentId == student.Id).ToList();
+                    foreach (WorkResult item in workResults)
+                    {
+                        Subject subject = Subjects.FirstOrDefault(s => s.Id == item.SubjectId);
+                        WorkType type = WorkTypes.FirstOrDefault(w => w.Id == item.WorkTypeId);
+                        result.StudentResults.Add(new StudentResult(shedule.Date, subject.SubjectName, student.Name, student.Surname, student.MidleName, type.WorkTypeName, item.Result));
+                    }
+                }
+                results.Add(result);
+            }
+            if (stype == SortType.Ascending)
+                results.OrderBy(func);
+            else
+                results.OrderByDescending(func);
             return results;
         }
     }

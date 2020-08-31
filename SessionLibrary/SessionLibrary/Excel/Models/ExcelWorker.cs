@@ -23,7 +23,7 @@ namespace SessionLibrary.Excel.Models
         /// <param name="filename">File's name</param>
         /// <param name="collection">List of results</param>
         /// <returns></returns>
-        public static bool WriteSessionResults(string filename, ICollection<GroupResult> collection)
+        public static bool Write(string filename, ICollection<GroupResult> collection)
         {
             try
             {
@@ -67,7 +67,7 @@ namespace SessionLibrary.Excel.Models
         /// <param name="filename">File's name</param>
         /// <param name="collection">List of groups</param>
         /// <returns></returns>
-        public static bool WriteGroupAvgMinMax(string filename, ICollection<GroupsAvgMinMax> collection)
+        public static bool Write(string filename, ICollection<GroupsAvgMinMax> collection)
         {
             try
             {
@@ -105,7 +105,7 @@ namespace SessionLibrary.Excel.Models
         /// <param name="filename">File's name</param>
         /// <param name="collection">List of dropout students</param>
         /// <returns></returns>
-        public static bool WriteDropoutStudents(string filename,ICollection<DropOutStudentsByGroup> collection)
+        public static bool Write(string filename,ICollection<DropOutStudentsByGroup> collection)
         {
             try
             {

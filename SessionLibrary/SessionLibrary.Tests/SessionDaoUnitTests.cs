@@ -5,7 +5,7 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SessionLibrary._DAO.Models;
 using SessionLibrary.DaoFactory.Models;
-using SessionLibrary.Models.Another;
+using SessionLibrary.ORM.Another;
 
 namespace SessionDao.Tests
 {
@@ -19,9 +19,9 @@ namespace SessionDao.Tests
             builder.DataSource = @"(localdb)\mssqllocaldb";
             builder.InitialCatalog = @"SessionLibrary";
             builder.IntegratedSecurity = true;
-            builder.AttachDBFilename = @"D:\Тихон\Git\EPAM-Task6\SessionLibrary\SessionLibrary.mdf";
             factory = SessionFactory.GetInstence(builder.ConnectionString);
         }
+      
         [DynamicData(nameof(TestMethodCreate),DynamicDataSourceType.Method)]
         [DataTestMethod]
         public void CreateTestMethod(Student student)
@@ -37,8 +37,8 @@ namespace SessionDao.Tests
         {
             return new[]
             {
-                new Student[] { new Student(15,"Pavel", "Pavlov","Pavlovich",/*new DateTime(2000,10,16) ,*/2,1) },
-                new Student[] { new Student(16,"Stas", "Statsov","Stasovich",/* new DateTime(1999, 01, 15),*/ 3,1) },
+                new Student[] { new Student(15,"Pavel", "Pavlov","Pavlovich",1,2) },
+                new Student[] { new Student(16,"Stas", "Statsov","Stasovich", 1,3) },
             };
         }
         //[DynamicData(nameof(TestMethodRead), DynamicDataSourceType.Method)]
@@ -52,6 +52,18 @@ namespace SessionDao.Tests
             Student actual = stCreator.Read(1);
             //assert
             Assert.AreEqual(expected, actual);
+        }
+        [DataTestMethod]
+        [DataRow(15)]
+        [DataRow(16)]
+        public void DeleteTestMethod(int id)
+        {
+            //arrange
+            StudentCreator stCreator = (StudentCreator)factory.GetStudentCreator();
+            //act
+            bool isDeleted = stCreator.Delete(id);
+            //assert
+            Assert.IsTrue(isDeleted);
         }
         [DynamicData(nameof(TestMethodUpdate), DynamicDataSourceType.Method)]
         [DataTestMethod]
@@ -72,18 +84,7 @@ namespace SessionDao.Tests
                 new Student[] { new Student(16,"Vecheslav", "Statsov","Stasovich", 3,1) },
             };
         }
-        [DataTestMethod]
-        [DataRow(15)]
-        [DataRow(16)]
-        public void DeleteTestMethod(int id)
-        {
-            //arrange
-            StudentCreator stCreator = (StudentCreator)factory.GetStudentCreator();
-            //act
-            bool isDeleted = stCreator.Delete(id);
-            //assert
-            Assert.IsTrue(isDeleted);
-        }
+
         [TestMethod]
         public void GetAllTestMethod()
         {

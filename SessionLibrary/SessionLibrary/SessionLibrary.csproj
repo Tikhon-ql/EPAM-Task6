@@ -58,6 +58,7 @@
     <Compile Include="Excel\DataClasses\GroupResult.cs" />
     <Compile Include="Excel\DataClasses\GroupsAvgMinMax.cs" />
     <Compile Include="Excel\DataClasses\StudentResult.cs" />
+    <Compile Include="Excel\Enums\SortType.cs" />
     <Compile Include="Excel\Models\AllGroupsAvgMaxMinGetter.cs" />
     <Compile Include="Excel\Models\ExcelWorker.cs" />
     <Compile Include="Excel\Models\DropoutStudentsGetter.cs" />
