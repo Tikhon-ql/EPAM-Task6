@@ -28,8 +28,8 @@ namespace SessionLibrary._DAO.Models
         }
         public bool Create(T value)
         {
-            //try
-            //{
+            try
+            {
                 using (SqlConnection cnn = new SqlConnection())
                 {
                     cnn.ConnectionString = connectionString;
@@ -56,11 +56,11 @@ namespace SessionLibrary._DAO.Models
                     command.ExecuteNonQuery();
                     return true;
                 }
-            //}
-            //catch
-            //{
-            //    return false;
-            //}
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public bool Delete(int id)
@@ -118,7 +118,6 @@ namespace SessionLibrary._DAO.Models
                     PropertyInfo[] infos = type.GetProperties();
                     SqlCommand command = new SqlCommand();
                     command.Connection = cnn;
-                    //PropertyInfo id = type.GetProperty("Id");
                     string setters = "";
                     foreach (PropertyInfo item in infos)
                     {
@@ -130,7 +129,6 @@ namespace SessionLibrary._DAO.Models
                     }
                     command.CommandText = $"update [{type.Name}] set {setters} where Id = @id";
                     cnn.Open();
-                    //Invalid column Andrey
                     command.ExecuteNonQuery();
                     return true;
                 }
