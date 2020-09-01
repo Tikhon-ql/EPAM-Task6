@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SessionLibrary.Excel.DataClasses;
+using SessionLibrary.Excel.Enums;
 using SessionLibrary.Excel.Models;
 
 namespace SessionLIbraryExcel.Tests
@@ -35,6 +37,17 @@ namespace SessionLIbraryExcel.Tests
             //assert
             Assert.IsTrue(flag);
         }
+        [TestMethod]
+        public void ExcelWriteSessionResultsWithSortingByDateAscending()
+        {
+            //arrange
+            SessionResultGetter getter = new SessionResultGetter(builder.ConnectionString);
+            List<GroupResult> results = getter.GetSessionResult(1,(i) => i.StudentName,SortType.Ascending).ToList<GroupResult>();
+            //act
+            bool flag = ExcelWorker.Write(@"SessionResultsWithSorting.xlsx", results);
+            //assert
+            Assert.IsTrue(flag);
+        }
         /// <summary>
         /// Checing excle worker write group with them average, minimum and maximum results method
         /// </summary>
@@ -46,6 +59,17 @@ namespace SessionLIbraryExcel.Tests
             List<GroupsAvgMinMax> results = getter.GetGroupsAvgMinMax().ToList<GroupsAvgMinMax>();
             //act
             bool flag = ExcelWorker.Write(@"GroupAvgMinMax.xlsx",results);
+            //assert
+            Assert.IsTrue(flag);
+        }
+        [TestMethod]
+        public void ExcelWriteGroupAvgMinMaxWithSortingByMaxDescending()
+        {
+            //arrange
+            AllGroupsAvgMaxMinGetter getter = new AllGroupsAvgMaxMinGetter(builder.ConnectionString);
+            List<GroupsAvgMinMax> results = getter.GetGroupsAvgMinMax((i)=>i.Max,SortType.Descending).ToList<GroupsAvgMinMax>();
+            //act
+            bool flag = ExcelWorker.Write(@"GroupAvgMinMaxWithSorting.xlsx", results);
             //assert
             Assert.IsTrue(flag);
         }
@@ -63,5 +87,17 @@ namespace SessionLIbraryExcel.Tests
             //assert
             Assert.IsTrue(flag);
         }
+        [TestMethod]
+        public void ExcelWriteWithSortingBySurnameAscendingDropOutStudents()
+        {
+            //arrange
+            DropoutStudentsGetter getter = new DropoutStudentsGetter(builder.ConnectionString);
+            List<DropOutStudentsByGroup> results = getter.GetExpelStudents((res) => res.Surname,SortType.Ascending).ToList<DropOutStudentsByGroup>();
+            //act
+            bool flag = ExcelWorker.Write(@"DropoutStudentsAscendingWithSorting.xlsx", results);
+            //assert
+            Assert.IsTrue(flag);
+        }
+
     }
 }

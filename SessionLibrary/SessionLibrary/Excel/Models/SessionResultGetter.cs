@@ -55,7 +55,7 @@ namespace SessionLibrary.Excel.Models
         /// <param name="func">Property for sorting</param>
         /// <param name="stype">Sorting type</param>
         /// <returns></returns>
-        public ICollection<GroupResult> GetSessionResult(int sessionId,Func<GroupResult,object> func,SortType stype)
+        public ICollection<GroupResult> GetSessionResult(int sessionId,Func<StudentResult,object> func,SortType stype)
         {
             Session currentSession = Sessions.FirstOrDefault(s => s.Id == sessionId);
             SessionShedule shedule = SessionShedules.FirstOrDefault(s => s.SessionId == currentSession.Id);
@@ -77,9 +77,17 @@ namespace SessionLibrary.Excel.Models
                 results.Add(result);
             }
             if (stype == SortType.Ascending)
-                results.OrderBy(func);
+            {
+                foreach (GroupResult item in results)
+                {
+                    item.StudentResults.OrderBy(func);
+                }
+            }
             else
-                results.OrderByDescending(func);
+                foreach (GroupResult item in results)
+                {
+                    item.StudentResults.OrderByDescending(func);
+                }
             return results;
         }
     }

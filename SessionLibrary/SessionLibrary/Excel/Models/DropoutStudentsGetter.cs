@@ -61,7 +61,7 @@ namespace SessionLibrary.Excel.Models
         /// <param name="func">Propert for sorting</param>
         /// <param name="stype">Sorting type</param>
         /// <returns></returns>
-        public IEnumerable<DropOutStudentsByGroup> GetExpelStudents(Func<DropOutStudentsByGroup,object> func,SortType stype)
+        public IEnumerable<DropOutStudentsByGroup> GetExpelStudents(Func<DropoutStudent,object> func,SortType stype)
         {
             List<DropOutStudentsByGroup> result = new List<DropOutStudentsByGroup>();
             foreach (Group group in Groups)
@@ -94,9 +94,19 @@ namespace SessionLibrary.Excel.Models
                 result.Add(expel);
             }
             if (stype == SortType.Ascending)
-                result.OrderBy(func);
+            {
+                foreach(DropOutStudentsByGroup item in result)
+                {
+                    item.DropoutStudent.OrderBy(func);
+                }
+            }
             else
-                result.OrderByDescending(func);
+            {
+                foreach (DropOutStudentsByGroup item in result)
+                {
+                    item.DropoutStudent.OrderByDescending(func);
+                }
+            }
             return result;
         }
     }
