@@ -37,6 +37,9 @@ namespace SessionLIbraryExcel.Tests
             //assert
             Assert.IsTrue(flag);
         }
+        /// <summary>
+        /// Checing excle worker write students results with sorting
+        /// </summary>
         [TestMethod]
         public void ExcelWriteSessionResultsWithSortingByDateAscending()
         {
@@ -62,6 +65,9 @@ namespace SessionLIbraryExcel.Tests
             //assert
             Assert.IsTrue(flag);
         }
+        /// <summary>
+        /// Checing excle worker write group with them average, minimum and maximum results with sorting
+        /// </summary>
         [TestMethod]
         public void ExcelWriteGroupAvgMinMaxWithSortingByMaxDescending()
         {
@@ -87,6 +93,9 @@ namespace SessionLIbraryExcel.Tests
             //assert
             Assert.IsTrue(flag);
         }
+        /// <summary>
+        /// Checing excle worker write dopout students with sorting
+        /// </summary>
         [TestMethod]
         public void ExcelWriteWithSortingBySurnameAscendingDropOutStudents()
         {
