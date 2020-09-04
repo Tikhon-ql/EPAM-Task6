@@ -74,10 +74,10 @@ namespace SessionLibrary.Excel.Models
                     results.Add(new GroupsAvgMinMax(item.GroupName, groupResults.Min(r => Convert.ToInt32(r.Result)), groupResults.Average(r => Convert.ToInt32(r.Result)), groupResults.Max(r => Convert.ToInt32(r.Result))));
             }
             if (stype == SortType.Ascending)
-                results.OrderBy(func);
+                return results.OrderBy(func);
             else
-                results.OrderByDescending(func);
-            return results;
+                return results.OrderByDescending(func);
+            //return results;
         }
     }
 }

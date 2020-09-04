@@ -45,7 +45,7 @@ namespace SessionLIbraryExcel.Tests
         {
             //arrange
             SessionResultGetter getter = new SessionResultGetter(builder.ConnectionString);
-            List<GroupResult> results = getter.GetSessionResult(1,(i) => i.StudentName,SortType.Ascending).ToList<GroupResult>();
+            List<GroupResult> results = getter.GetSessionResult(1,(i) => i.Result,SortType.Ascending).ToList<GroupResult>();
             //act
             bool flag = ExcelWorker.Write(@"SessionResultsWithSorting.xlsx", results);
             //assert

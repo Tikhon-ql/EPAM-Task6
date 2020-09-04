@@ -24,5 +24,10 @@ namespace SessionLibrary.Excel.DataClasses
             GroupName = groupName;
             StudentResults = new List<StudentResult>();
         }
+        public GroupResult(string groupName,params StudentResult[] param)
+        {
+            GroupName = groupName;
+            StudentResults = param.ToList();
+        }
     }
 }
