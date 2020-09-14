@@ -1,0 +1,2 @@
+D:\Тихон\Git\EPAM-Task6\SessionLibrary\Interface\obj\Debug\Interface.csprojAssemblyReference.cache
+D:\Тихон\Git\EPAM-Task6\SessionLibrary\Interface\obj\Debug\Interface.csproj.CoreCompileInputs.cache

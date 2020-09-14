@@ -55,7 +55,7 @@ namespace SessionLibrary.ORM.Another
 
         public override bool Equals(object obj)
         {
-            return obj is Student student &&
+            return obj != null && obj is Student student &&
                    Id == student.Id &&
                    Name == student.Name &&
                    Surname == student.Surname &&

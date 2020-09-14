@@ -5,12 +5,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{76D2A03D-1589-4249-89D9-BF331C2CEAC2}</ProjectGuid>
+    <ProjectGuid>{DE2EF338-DBCD-47C4-A69F-C0B24D1D2ADE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SessionLibrary.Tests</RootNamespace>
-    <AssemblyName>SessionLibrary.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RootNamespace>SubjectDao.Tests</RootNamespace>
+    <AssemblyName>SubjectDao.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">15.0</VisualStudioVersion>
@@ -20,7 +20,6 @@
     <TestProjectType>UnitTest</TestProjectType>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -51,7 +50,7 @@
     <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SessionDaoUnitTests.cs" />
+    <Compile Include="SubjectDaoUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -59,7 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SessionLibrary\SessionLibrary.csproj">
-      <Project>{92a41e61-e14a-4821-bb91-259b128446d5}</Project>
+      <Project>{92A41E61-E14A-4821-BB91-259B128446D5}</Project>
       <Name>SessionLibrary</Name>
     </ProjectReference>
   </ItemGroup>

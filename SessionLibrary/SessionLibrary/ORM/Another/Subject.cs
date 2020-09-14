@@ -25,5 +25,12 @@ namespace SessionLibrary.ORM.Another
             Id = id;
             SubjectName = subjectName;
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj != null && obj is Subject subject &&
+                   Id == subject.Id &&
+                   SubjectName == subject.SubjectName;
+        }
     }
 }

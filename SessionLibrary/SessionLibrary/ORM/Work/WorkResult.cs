@@ -40,5 +40,26 @@ namespace SessionLibrary.ORM.Work
             Result = result;
             WorkTypeId = workTypeId;
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj != null && obj is WorkResult result &&
+                   Id == result.Id &&
+                   StudentId == result.StudentId &&
+                   SubjectId == result.SubjectId &&
+                   Result == result.Result &&
+                   WorkTypeId == result.WorkTypeId;
+        }
+
+        public override int GetHashCode()
+        {
+            int hashCode = 552405456;
+            hashCode = hashCode * -1521134295 + Id.GetHashCode();
+            hashCode = hashCode * -1521134295 + StudentId.GetHashCode();
+            hashCode = hashCode * -1521134295 + SubjectId.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Result);
+            hashCode = hashCode * -1521134295 + WorkTypeId.GetHashCode();
+            return hashCode;
+        }
     }
 }

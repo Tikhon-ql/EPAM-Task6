@@ -27,13 +27,30 @@ namespace SessionLibrary.ORM.Session
 
         public Session()
         {
-                
+
         }
         public Session(int id, int sessionTypeId, string academicYears)
         {
             Id = id;
             AcademicYears = academicYears;
             SessionTypeId = sessionTypeId;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj != null && obj is Session session &&
+                   Id == session.Id &&
+                   AcademicYears == session.AcademicYears &&
+                   SessionTypeId == session.SessionTypeId;
+        }
+
+        public override int GetHashCode()
+        {
+            int hashCode = -1646005154;
+            hashCode = hashCode * -1521134295 + Id.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(AcademicYears);
+            hashCode = hashCode * -1521134295 + SessionTypeId.GetHashCode();
+            return hashCode;
         }
     }
 }

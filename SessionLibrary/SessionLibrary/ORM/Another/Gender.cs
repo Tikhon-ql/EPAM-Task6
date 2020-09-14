@@ -24,5 +24,20 @@ namespace SessionLibrary.ORM.Another
             Id = id;
             GenderName = genderName;
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj != null && obj is Gender gender &&
+                   Id == gender.Id &&
+                   GenderName == gender.GenderName;
+        }
+
+        public override int GetHashCode()
+        {
+            int hashCode = -146968061;
+            hashCode = hashCode * -1521134295 + Id.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(GenderName);
+            return hashCode;
+        }
     }
 }

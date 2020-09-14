@@ -1,0 +1,6 @@
+D:\Тихон\Git\EPAM-Task6\SessionLibrary\InterfaceLibrary\bin\Debug\InterfaceLibrary.dll
+D:\Тихон\Git\EPAM-Task6\SessionLibrary\InterfaceLibrary\bin\Debug\InterfaceLibrary.pdb
+D:\Тихон\Git\EPAM-Task6\SessionLibrary\InterfaceLibrary\obj\Debug\InterfaceLibrary.csproj.CoreCompileInputs.cache
+D:\Тихон\Git\EPAM-Task6\SessionLibrary\InterfaceLibrary\obj\Debug\InterfaceLibrary.dll
+D:\Тихон\Git\EPAM-Task6\SessionLibrary\InterfaceLibrary\obj\Debug\InterfaceLibrary.pdb
+D:\Тихон\Git\EPAM-Task6\SessionLibrary\InterfaceLibrary\obj\Debug\InterfaceLibrary.csprojAssemblyReference.cache

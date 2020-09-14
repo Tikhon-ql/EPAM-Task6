@@ -7,13 +7,16 @@ using SessionLibrary._DAO.Models;
 using SessionLibrary.DaoFactory.Models;
 using SessionLibrary.ORM.Another;
 
-namespace SessionDao.Tests
+namespace StudentDao.Tests
 {
     [TestClass]
-    public class SessionDaoUnitTests
+    public class StudentDaoUnitTests
     {
+        /// <summary>
+        /// Factory
+        /// </summary>
         private static SessionFactory factory;
-        static SessionDaoUnitTests()
+        static StudentDaoUnitTests()
         {
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             builder.DataSource = @"(localdb)\mssqllocaldb";
@@ -21,7 +24,10 @@ namespace SessionDao.Tests
             builder.IntegratedSecurity = true;
             factory = SessionFactory.GetInstence(builder.ConnectionString);
         }
-      
+        /// <summary>
+        /// Checking write down into database method
+        /// </summary>
+        /// <param name="student"></param>
         [DynamicData(nameof(TestMethodCreate),DynamicDataSourceType.Method)]
         [DataTestMethod]
         public void CreateTestMethod(Student student)
@@ -33,6 +39,10 @@ namespace SessionDao.Tests
             //assert
             Assert.IsTrue(isCreated);
         }
+        /// <summary>
+        /// Data for checking create method
+        /// </summary>
+        /// <returns></returns>
         private static IEnumerable<Student[]> TestMethodCreate()
         {
             return new[]
@@ -41,7 +51,9 @@ namespace SessionDao.Tests
                 new Student[] { new Student(16,"Stas", "Statsov","Stasovich", 1,3) },
             };
         }
-        //[DynamicData(nameof(TestMethodRead), DynamicDataSourceType.Method)]
+        /// <summary>
+        /// Checking read method
+        /// </summary>
         [TestMethod]
         public void ReadTestMethod()
         {
@@ -53,6 +65,10 @@ namespace SessionDao.Tests
             //assert
             Assert.AreEqual(expected, actual);
         }
+        /// <summary>
+        /// Checking delete method
+        /// </summary>
+        /// <param name="id"></param>
         [DataTestMethod]
         [DataRow(15)]
         [DataRow(16)]
@@ -65,6 +81,10 @@ namespace SessionDao.Tests
             //assert
             Assert.IsTrue(isDeleted);
         }
+        /// <summary>
+        /// Checking update method
+        /// </summary>
+        /// <param name="student"></param>
         [DynamicData(nameof(TestMethodUpdate), DynamicDataSourceType.Method)]
         [DataTestMethod]
         public void UpdateTestMethod(Student student)
@@ -76,6 +96,10 @@ namespace SessionDao.Tests
             //assert
             Assert.IsTrue(isUpdated);
         }
+        /// <summary>
+        /// Data for checking update method
+        /// </summary>
+        /// <returns></returns>
         private static IEnumerable<Student[]> TestMethodUpdate()
         {
             return new[]
@@ -84,7 +108,9 @@ namespace SessionDao.Tests
                 new Student[] { new Student(16,"Vecheslav", "Statsov","Stasovich", 3,1) },
             };
         }
-
+        /// <summary>
+        /// Checking read all data method
+        /// </summary>
         [TestMethod]
         public void GetAllTestMethod()
         {
