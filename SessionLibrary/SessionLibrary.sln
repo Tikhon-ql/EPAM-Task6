@@ -49,6 +49,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WorkTypeCreatorTests", "Wor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkTypeDao.Tests", "WorkTypeDao.Tests\WorkTypeDao.Tests.csproj", "{4D3BE936-C47B-4720-9514-A2F442991F75}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WorkResultCreatorTests", "WorkResultCreatorTests", "{33700A4B-5B58-46D6-82CB-3DB616911FAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkResultDao.Tests", "WorkResultDao.Tests\WorkResultDao.Tests.csproj", "{9A34FEF1-02D3-49CA-9AF1-73A694280154}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +87,10 @@ Global
 		{4D3BE936-C47B-4720-9514-A2F442991F75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D3BE936-C47B-4720-9514-A2F442991F75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D3BE936-C47B-4720-9514-A2F442991F75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A34FEF1-02D3-49CA-9AF1-73A694280154}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A34FEF1-02D3-49CA-9AF1-73A694280154}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A34FEF1-02D3-49CA-9AF1-73A694280154}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A34FEF1-02D3-49CA-9AF1-73A694280154}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -104,6 +112,8 @@ Global
 		{DE2EF338-DBCD-47C4-A69F-C0B24D1D2ADE} = {BA4802F5-5292-4C09-8514-9761259F353B}
 		{0CD2C49A-DABC-4760-81A5-4227F8ED79B4} = {41DA3EED-A203-41BF-A3E5-1A6442464231}
 		{4D3BE936-C47B-4720-9514-A2F442991F75} = {0CD2C49A-DABC-4760-81A5-4227F8ED79B4}
+		{33700A4B-5B58-46D6-82CB-3DB616911FAF} = {41DA3EED-A203-41BF-A3E5-1A6442464231}
+		{9A34FEF1-02D3-49CA-9AF1-73A694280154} = {33700A4B-5B58-46D6-82CB-3DB616911FAF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F12D82E5-BDC3-4607-AF66-A77A0B44D8BA}
