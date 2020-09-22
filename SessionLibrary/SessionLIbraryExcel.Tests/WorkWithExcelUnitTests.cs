@@ -19,7 +19,7 @@ namespace SessionLIbraryExcel.Tests
         static SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
         static WorkWithExcelUnitTests()
         {
-            builder.DataSource = @"(localdb)\mssqllocaldb";
+            builder.DataSource = @"DESKTOP-7D5VMQO\SQLEXPRESS";
             builder.InitialCatalog = @"SessionLibrary";
             builder.IntegratedSecurity = true;
         }

@@ -19,7 +19,7 @@ namespace WorkResultDao.Tests
         static WorkResultDaoUnitTests()
         {
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-            builder.DataSource = @"(localdb)\mssqllocaldb";
+            builder.DataSource = @"DESKTOP-7D5VMQO\SQLEXPRESS";
             builder.InitialCatalog = @"SessionLibrary";
             builder.IntegratedSecurity = true;
             factory = SessionFactory.GetInstence(builder.ConnectionString);
