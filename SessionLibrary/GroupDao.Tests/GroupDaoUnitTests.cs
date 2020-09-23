@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using AbstractUnitTestLib;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SessionLibrary._DAO.Models;
 using SessionLibrary.DaoFactory.Models;
@@ -10,20 +11,8 @@ using SessionLibrary.ORM.Another;
 namespace GroupDao.Tests
 {
     [TestClass]
-    public class GroupDaoUnitTests
+    public class GroupDaoUnitTests:MyUnitTest
     {
-        /// <summary>
-        /// Factory
-        /// </summary>
-        private static SessionFactory factory;
-        static GroupDaoUnitTests()
-        {
-            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-            builder.DataSource = @"(localdb)\mssqllocaldb";
-            builder.InitialCatalog = @"SessionLibrary";
-            builder.IntegratedSecurity = true;
-            factory = SessionFactory.GetInstence(builder.ConnectionString);
-        }
         /// <summary>
         /// Checking write down into database method
         /// </summary>

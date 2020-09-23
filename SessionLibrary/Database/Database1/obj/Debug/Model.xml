@@ -12,7 +12,7 @@
 		</CustomData>
 		<CustomData Category="Reference" Type="Assembly">
 			<Metadata Name="LogicalName" Value="SessionLibrary.dll" />
-			<Metadata Name="FileName" Value="D:\ТИХОН\GIT\EPAM-TASK6\SESSIONLIBRARY\DATABASE\DATABASE1\OBJ\DEBUG\SESSIONLIBRARY.DLL" />
+			<Metadata Name="FileName" Value="C:\USERS\ТИХОН\DESKTOP\EPAM-TASK6-MASTER\SESSIONLIBRARY\DATABASE\DATABASE1\OBJ\DEBUG\SESSIONLIBRARY.DLL" />
 			<Metadata Name="AssemblyName" Value="SessionLibrary" />
 			<Metadata Name="PermissionSet" Value="SAFE" />
 			<Metadata Name="Owner" Value="" />
@@ -20,7 +20,7 @@
 			<Metadata Name="IsVisible" Value="True" />
 			<Metadata Name="IsModelAware" Value="True" />
 			<Metadata Name="SkipCreationIfEmpty" Value="True" />
-			<Metadata Name="AssemblySymbolsName" Value="D:\Тихон\Git\EPAM-Task6\SessionLibrary\Database\Database1\obj\Debug\SessionLibrary.pdb" />
+			<Metadata Name="AssemblySymbolsName" Value="C:\Users\Тихон\Desktop\EPAM-Task6-master\SessionLibrary\Database\Database1\obj\Debug\SessionLibrary.pdb" />
 		</CustomData>
 		<CustomData Category="SqlCmdVariables" Type="SqlCmdVariable" />
 	</Header>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using AbstractUnitTestLib;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SessionLibrary._DAO.Models;
 using SessionLibrary.DaoFactory.Models;
@@ -10,21 +11,8 @@ using SessionLibrary.ORM.Session;
 namespace _SessionShedule.Tests
 {
     [TestClass]
-    public class SessionSheduleDaoUnitTests
+    public class SessionSheduleDaoUnitTests : MyUnitTest
     {
-        /// <summary>
-        /// Factory
-        /// </summary>
-
-        private static SessionFactory factory;
-        static SessionSheduleDaoUnitTests()
-        {
-            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-            builder.DataSource = @"(localdb)\mssqllocaldb";
-            builder.InitialCatalog = @"SessionLibrary";
-            builder.IntegratedSecurity = true;
-            factory = SessionFactory.GetInstence(builder.ConnectionString);
-        }
         /// <summary>
         /// Checking write down into database method
         /// </summary>

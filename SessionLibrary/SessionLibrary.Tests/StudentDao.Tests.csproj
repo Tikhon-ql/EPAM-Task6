@@ -58,6 +58,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AbstractUnitTestLib\AbstractUnitTestLib.csproj">
+      <Project>{1E391CB1-369B-41BD-BBB1-FD8123428C4B}</Project>
+      <Name>AbstractUnitTestLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SessionLibrary\SessionLibrary.csproj">
       <Project>{92a41e61-e14a-4821-bb91-259b128446d5}</Project>
       <Name>SessionLibrary</Name>
