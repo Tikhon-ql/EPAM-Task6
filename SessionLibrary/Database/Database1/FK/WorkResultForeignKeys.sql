@@ -21,3 +21,13 @@ GO
 
 ALTER TABLE [dbo].[WorkResult] CHECK CONSTRAINT [FK_dbo.WorkResult_dbo.WorkType_WorkTypeId]
 GO
+
+--4
+
+ALTER TABLE [dbo].[WorkResult]  WITH CHECK ADD CONSTRAINT [FK_dbo.WorkResult_dbo.SessionShedule_SessionSheduleId] FOREIGN KEY([SessionSheduleId])
+REFERENCES [dbo].[SessionShedule] ([Id])
+ON DELETE CASCADE
+GO
+
+ALTER TABLE [dbo].[WorkResult] CHECK CONSTRAINT [FK_dbo.WorkResult_dbo.SessionShedule_SessionSheduleId]
+GO

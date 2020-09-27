@@ -36,8 +36,8 @@ namespace _SessionShedule.Tests
         {
             return new[]
             {
-                new SessionShedule[] { new SessionShedule(9,1,new DateTime(2019,11,16),1,2,1) },
-                new SessionShedule[] { new SessionShedule(10,2, new DateTime(2019, 11, 15), 1, 1, 1) },
+                new SessionShedule[] { new SessionShedule(9,1,new DateTime(2019,11,16),1) },
+                new SessionShedule[] { new SessionShedule(10,2, new DateTime(2019, 11, 15),  1) },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace _SessionShedule.Tests
         public void ReadTestMethod()
         {
             //arrange
-            SessionShedule expected = new SessionShedule(1, 1, new DateTime(2019, 11, 10), 1, 1, 1);
+            SessionShedule expected = new SessionShedule(1, 1, new DateTime(2019, 11, 10),  1);
             //act
             SessionSheduleCreator stCreator = (SessionSheduleCreator)factory.GetSessionSheduleCreator();
             SessionShedule actual = stCreator.Read(1);
@@ -93,8 +93,8 @@ namespace _SessionShedule.Tests
         {
             return new[]
             {
-                new SessionShedule[] { new SessionShedule(9,1,new DateTime(2019,11,15),1,2,1) },
-                new SessionShedule[] { new SessionShedule(10,2, new DateTime(2019, 11, 14), 1, 1, 1) },
+                new SessionShedule[] { new SessionShedule(9,1,new DateTime(2019,11,15),1) },
+                new SessionShedule[] { new SessionShedule(10,2, new DateTime(2019, 11, 14), 1) },
             };
         }
         /// <summary>
@@ -105,10 +105,10 @@ namespace _SessionShedule.Tests
         {
             //arrange
             SessionSheduleCreator stCreator = (SessionSheduleCreator)factory.GetSessionSheduleCreator();
-            List<SessionShedule> expected = new List<SessionShedule> { new SessionShedule(1,1,new DateTime(2019,11,10),1,1,1) , new SessionShedule(2,2,new DateTime(2019,11,15),1,2,1),
-                                                        new SessionShedule(3,3,new DateTime(2020,7,10),2,3,1),new SessionShedule(4,4,new DateTime(2020,7,14),2,4,1),
-                                                        new SessionShedule(5,1,new DateTime(2019,11,13),2,4,1),new SessionShedule(6,2,new DateTime(2019,11,14),2,3,1),
-                                                        new SessionShedule(7,3,new DateTime(2020,7,15),1,2,1),new SessionShedule(8,4,new DateTime(2020,7,16),1,1,2)
+            List<SessionShedule> expected = new List<SessionShedule> { new SessionShedule(1,1,new DateTime(2019,11,10),1) , new SessionShedule(2,2,new DateTime(2019,11,15),1),
+                                                        new SessionShedule(3,3,new DateTime(2020,7,10),1),new SessionShedule(4,4,new DateTime(2020,7,14),1),
+                                                        new SessionShedule(5,1,new DateTime(2019,11,13),1),new SessionShedule(6,2,new DateTime(2019,11,14),1),
+                                                        new SessionShedule(7,3,new DateTime(2020,7,15),1),new SessionShedule(8,4,new DateTime(2020,7,16),2)
                                                       };
             //act
             List<SessionShedule> actual = stCreator.GetAll().ToList();

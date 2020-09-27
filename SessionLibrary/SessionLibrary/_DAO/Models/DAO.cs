@@ -16,7 +16,7 @@ namespace SessionLibrary._DAO.Models
     /// Dao's class
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class Dao<T> : IDao<T>
+    public abstract class Dao<T> : IDao<T>
     {
         /// <summary>
         /// Connection string 

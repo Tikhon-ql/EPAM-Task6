@@ -88,6 +88,5 @@ namespace SessionLibrary.DaoFactory.Models
         {
             return new WorkTypeCreator(connectionString);
         }
-
     }
 }

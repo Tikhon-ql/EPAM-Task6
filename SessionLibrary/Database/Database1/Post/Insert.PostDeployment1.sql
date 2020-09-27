@@ -36,21 +36,21 @@ GO
 insert into [Session](Id,SessionTypeId,AcademicYears) values (2,2,'2020')
 GO
 
-insert into SessionShedule(Id,GroupId,[Date],WorkTypeId,SubjectId,SessionId) values (1,1,'2019-10-11',1,1,1)
+insert into SessionShedule(Id,GroupId,[Date],SessionId) values (1,1,'2019-10-11',1)
  GO
-insert into SessionShedule(Id,GroupId,[Date],WorkTypeId,SubjectId,SessionId) values (2,2,'2019-15-11',1,2,1)
+insert into SessionShedule(Id,GroupId,[Date],SessionId) values (2,2,'2019-15-11',1)
  GO
-insert into SessionShedule(Id,GroupId,[Date],WorkTypeId,SubjectId,SessionId) values (3,3,'2020-10-07',2,3,1)
+insert into SessionShedule(Id,GroupId,[Date],SessionId) values (3,3,'2020-10-07',1)
  GO
-insert into SessionShedule(Id,GroupId,[Date],WorkTypeId,SubjectId,SessionId) values (4,4,'2020-14-07',2,4,1)
+insert into SessionShedule(Id,GroupId,[Date],SessionId) values (4,4,'2020-14-07',1)
   GO
-insert into SessionShedule(Id,GroupId,[Date],WorkTypeId,SubjectId,SessionId) values (5,1,'2019-13-11',2,4,1)
+insert into SessionShedule(Id,GroupId,[Date],SessionId) values (5,1,'2019-13-11',1)
  GO
-insert into SessionShedule(Id,GroupId,[Date],WorkTypeId,SubjectId,SessionId) values (6,2,'2019-14-11',2,3,1)
+insert into SessionShedule(Id,GroupId,[Date],SessionId) values (6,2,'2019-14-11',1)
  GO
-insert into SessionShedule(Id,GroupId,[Date],WorkTypeId,SubjectId,SessionId) values (7,3,'2020-15-07',1,2,1)
+insert into SessionShedule(Id,GroupId,[Date],SessionId) values (7,3,'2020-15-07',1)
  GO
-insert into SessionShedule(Id,GroupId,[Date],WorkTypeId,SubjectId,SessionId) values (8,4,'2020-16-07',1,1,2)
+insert into SessionShedule(Id,GroupId,[Date],SessionId) values (8,4,'2020-16-07',2)
 GO
 
 
@@ -89,62 +89,62 @@ GO
 
 
 
-insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId) values (1,'8',1,1,1)
+insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId,SessionSheduleId) values (1,'8',1,1,1,1)
 GO
-insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId) values  (2,'9',2,2,1) 
+insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId,SessionSheduleId) values  (2,'9',2,2,1,2) 
 GO
-insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId) values  (3,'Credit',3,3,2)
+insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId,SessionSheduleId) values  (3,'Credit',3,3,2,3)
 GO
-insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId) values  (4,'Credit',4,4,2)
+insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId,SessionSheduleId) values  (4,'Credit',4,4,2,4)
 GO
-insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId) values  (5,'Uncredit',5,4,2)
+insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId,SessionSheduleId) values  (5,'Uncredit',5,4,2,5)
 GO
-insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId) values (6,'Credit',6,3,2)
+insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId,SessionSheduleId) values (6,'Credit',6,3,2,6)
 GO
-insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId) values (7,'Credit',7,4,2)
+insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId,SessionSheduleId) values (7,'Credit',7,4,2,7)
 GO
-insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId) values (8,'Uncredit',8,3,2)
+insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId,SessionSheduleId) values (8,'Uncredit',8,3,2,8)
 GO
-insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId) values (9,'Credit',9,4,2)
+insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId,SessionSheduleId) values (9,'Credit',9,4,2,1)
  GO
-insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId) values (10,'Credit',10,3,2)
+insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId,SessionSheduleId) values (10,'Credit',10,3,2,2)
  GO
-insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId) values (11,'2',11,1,1)
+insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId,SessionSheduleId) values (11,'2',11,1,1,3)
  GO
-insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId) values (12,'3',12,2,1)
+insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId,SessionSheduleId) values (12,'3',12,2,1,4)
  GO
-insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId) values (13,'4',13,2,1)
+insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId,SessionSheduleId) values (13,'4',13,2,1,5)
  GO
-insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId) values (14,'6',14,1,1)
+insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId,SessionSheduleId) values (14,'6',14,1,1,6)
  GO
-insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId) values (15,'7',5,2,1)
+insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId,SessionSheduleId) values (15,'7',5,2,1,7)
  GO
-insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId) values (16,'8',2,1,1)
+insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId,SessionSheduleId) values (16,'8',2,1,1,8)
  GO
-insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId) values (17,'8',4,1,1)
+insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId,SessionSheduleId) values (17,'8',4,1,1,1)
  GO
-insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId) values (18,'9',1,2,1)
+insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId,SessionSheduleId) values (18,'9',1,2,1,2)
  GO
-insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId) values (19,'Credit',1,3,2)
+insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId,SessionSheduleId) values (19,'Credit',1,3,2,3)
  GO
-insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId) values (20,'6',2,1,1)
+insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId,SessionSheduleId) values (20,'6',2,1,1,4)
  GO
-insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId) values (21,'Uncredit',3,4,2)
+insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId,SessionSheduleId) values (21,'Uncredit',3,4,2,5)
  GO
-insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId) values (22,'2',4,1,1)
+insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId,SessionSheduleId) values (22,'2',4,1,1,6)
  GO
-insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId) values (23,'3',3,1,1)
+insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId,SessionSheduleId) values (23,'3',3,1,1,7)
  GO
-insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId) values (24,'8',9,1,1)
+insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId,SessionSheduleId) values (24,'8',9,1,1,8)
  GO
-insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId) values (25,'4',8,2,1)
+insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId,SessionSheduleId) values (25,'4',8,2,1,1)
  GO
-insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId) values (26,'7',10,1,1)
+insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId,SessionSheduleId) values (26,'7',10,1,1,2)
  GO
-insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId) values (27,'8',8,1,1)
+insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId,SessionSheduleId) values (27,'8',8,1,1,3)
  GO
-insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId) values (28,'6',9,2,1)
+insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId,SessionSheduleId) values (28,'6',9,2,1,4)
  GO
-insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId) values (29,'8',10,2,1)
+insert into WorkResult(Id,Result,StudentId,SubjectId,WorkTypeId,SessionSheduleId) values (29,'8',10,2,1,5)
 
 GO

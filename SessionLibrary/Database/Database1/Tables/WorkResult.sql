@@ -4,5 +4,6 @@
     [StudentId]  INT           NOT NULL,
     [SubjectId]  INT           NOT NULL,
     [WorkTypeId] INT           NOT NULL,
+    [SessionSheduleId] int not null,
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );

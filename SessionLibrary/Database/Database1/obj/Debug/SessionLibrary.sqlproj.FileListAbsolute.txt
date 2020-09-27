@@ -27,10 +27,6 @@ D:\Тихон\Git\EPAM-Task6\SessionLibrary\Database\Database1\bin\Debug\Session
 D:\Тихон\Git\EPAM-Task6\SessionLibrary\Database\Database1\bin\Debug\SessionLibrary.dll
 D:\Тихон\Git\EPAM-Task6\SessionLibrary\Database\Database1\bin\Debug\SessionLibrary.pdb
 D:\Тихон\Git\EPAM-Task6\SessionLibrary\Database\Database1\obj\Debug\SessionLibrary.sqlprojAssemblyReference.cache
-D:\Тихон\Git\EPAM-Task6\SessionLibrary\Database\Database1\obj\Debug\Model.xml
-D:\Тихон\Git\EPAM-Task6\SessionLibrary\Database\Database1\obj\Debug\refactor.xml
-D:\Тихон\Git\EPAM-Task6\SessionLibrary\Database\Database1\obj\Debug\postdeploy.sql
-D:\Тихон\Git\EPAM-Task6\SessionLibrary\Database\Database1\obj\Debug\predeploy.sql
 D:\Тихон\Git\EPAM-Task6\SessionLibrary\Database\Database1\obj\Debug\SessionLibrary.dll
 D:\Тихон\Git\EPAM-Task6\SessionLibrary\Database\Database1\obj\Debug\SessionLibrary.pdb
 C:\Users\Developer\Desktop\EPAM-Task6-master\SessionLibrary\Database\Database1\bin\Debug\SessionLibrary.dacpac
@@ -49,3 +45,9 @@ C:\Users\Тихон\Desktop\EPAM-Task6-master\SessionLibrary\Database\Database1\
 C:\Users\Тихон\Desktop\EPAM-Task6-master\SessionLibrary\Database\Database1\obj\Debug\refactor.xml
 C:\Users\Тихон\Desktop\EPAM-Task6-master\SessionLibrary\Database\Database1\obj\Debug\postdeploy.sql
 C:\Users\Тихон\Desktop\EPAM-Task6-master\SessionLibrary\Database\Database1\obj\Debug\predeploy.sql
+D:\Тихон\Git\Database\Database1\bin\Debug\SessionLibrary.dacpac
+D:\Тихон\Git\Database\Database1\bin\Debug\SessionLibrary.dll
+D:\Тихон\Git\Database\Database1\bin\Debug\SessionLibrary.pdb
+D:\Тихон\Git\Database\Database1\obj\Debug\SessionLibrary.sqlprojAssemblyReference.cache
+D:\Тихон\Git\Database\Database1\obj\Debug\SessionLibrary.dll
+D:\Тихон\Git\Database\Database1\obj\Debug\SessionLibrary.pdb
