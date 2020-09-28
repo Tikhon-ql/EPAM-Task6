@@ -73,9 +73,9 @@ namespace SessionLibrary.Excel.Models
             {
                 ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
                 ExcelPackage package = new ExcelPackage();
-                package.Workbook.Properties.Title = "Session results";
+                package.Workbook.Properties.Title = "Average, min, max by group";
                 package.Workbook.Properties.Created = DateTime.Now;
-                string[] headers = { "Group's name", "Average", "Minimum", "Maximum" };
+                string[] headers = { "Group's name", "Average", "Minimum", "Maximum"};
                 ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("All groups");
                 for (int i = 1; i <= headers.Length; i++)
                 {
@@ -111,7 +111,7 @@ namespace SessionLibrary.Excel.Models
             {
                 ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
                 ExcelPackage package = new ExcelPackage();
-                package.Workbook.Properties.Title = "Expel students";
+                package.Workbook.Properties.Title = "Dropout students";
                 package.Workbook.Properties.Created = DateTime.Now;
                 string[] headers = { "Name", "Surname", "Midle name" };
                 foreach (DropOutStudentsByGroup item in collection)

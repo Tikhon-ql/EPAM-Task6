@@ -105,7 +105,7 @@ namespace SessionLibrary.Excel.Models
             {
                 foreach (DropOutStudentsByGroup item in result)
                 {
-                    dropout.Add(new DropOutStudentsByGroup(item.GroupName, item.DropoutStudent.OrderBy(func).ToArray()));
+                    dropout.Add(new DropOutStudentsByGroup(item.GroupName, item.DropoutStudent.OrderByDescending(func).ToArray()));
                 }
             }
             return dropout;

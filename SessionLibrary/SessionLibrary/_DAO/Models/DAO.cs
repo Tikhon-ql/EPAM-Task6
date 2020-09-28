@@ -28,8 +28,8 @@ namespace SessionLibrary._DAO.Models
         }
         public bool Create(T value)
         {
-            //try
-            //{
+            try
+            {
                 using (SqlConnection cnn = new SqlConnection())
                 {
                     cnn.ConnectionString = connectionString;
@@ -56,11 +56,11 @@ namespace SessionLibrary._DAO.Models
                     command.ExecuteNonQuery();
                     return true;
                 }
-            //}
-            //catch
-            //{
-            //    return false;
-            //}
+        }
+            catch
+            {
+                return false;
+            }
         }
 
         public bool Delete(int id)
